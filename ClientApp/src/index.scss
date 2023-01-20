@@ -1,5 +1,22 @@
 :root {
   font: 16px / 1 sans-serif;
+  --pale-blue: #ccf6ff;
+  --mid-blue: #abe9f5;
+  --teal: #659da8;
+  --fudgy: #f5cdab;
+  --milk-choc: #a87b54;
+  --chartreuse: #eaf59a;
+  --pale-grey: #dddddd;
+}
+
+// @media screen and (min-width: 26.75em) {
+//   :root {
+//     font-size: 16px;
+//   }
+// }
+* {
+  box-sizing: border-box;
+  color: var(--milk-choc);
 }
 
 html {
@@ -9,4 +26,140 @@ html {
 body {
   margin: 0;
   min-height: 100%;
+}
+
+p {
+  margin: 10px;
+  padding: 0;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 500;
+  text-shadow: (rgb(167, 165, 165) 3px 1px 3px);
+  margin: 1.5rem;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  text-align: end;
+}
+
+header {
+  background-color: var(--mid-blue);
+  border-radius: 1rem;
+  padding: 0 0 0 0.5rem;
+  margin: 1.5rem 0;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  min-height: 100%;
+  min-width: auto;
+}
+
+.front-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  min-height: 100%;
+  background-color: var(--mid-blue);
+  padding: 0 0 0 0.5rem;
+  border-radius: 0.5rem;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  // align-content: center;
+  min-height: 100%;
+  background-color: var(--mid-blue);
+  padding: 0 0 0 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.section {
+  max-width: 20rem;
+  min-height: 57.88rem;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--pale-blue);
+  margin: 0.5rem auto;
+  padding: 1rem;
+}
+
+.centered {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-content: center;
+  color: #abe9f5;
+  height: 36rem;
+  width: 18rem;
+}
+
+section {
+  height: 1vh;
+  // width: 2vw;
+}
+
+.aa {
+  background-color: var(--pale-blue);
+  border-radius: 0 0 0 50px;
+}
+
+.a {
+  background-color: var(--mid-blue);
+  border-radius: 0 50px 0 0;
+}
+
+.bb {
+  background-color: var(--mid-blue);
+  border-radius: 0 0 50px 0;
+}
+
+.b {
+  background-color: var(--pale-blue);
+  border-radius: 50px 0 0 0;
+}
+
+.aa,
+.bb {
+  height: 300px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.color-teal {
+  background-color: #659da8;
+}
+
+.color-fudgy {
+  background-color: #f5cdab;
+}
+
+.color-milkchoc {
+  color: var(--milk-choc);
+}
+
+.pale-text {
+  color: var(--pale-blue);
+}
+
+.bgrd-midbl {
+  background-color: var(--mid-blue);
+}
+
+.w-500 {
+  font-weight: 500;
+}
+
+.mx-width {
+  width: 18rem;
 }
