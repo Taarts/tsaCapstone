@@ -10,3 +10,7 @@ export type BookType = {
   description: string
   ISBN: string
 }
+
+export type CategoryListProps = {
+  title: string
+}
