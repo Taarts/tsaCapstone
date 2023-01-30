@@ -1,34 +1,41 @@
 import React from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Link } from 'react-router-dom'
 import { Books } from './pages/Books'
-import svg from './images/64919D_sin.svg'
+import { SignIn } from './pages/SignIn'
+import { Landing } from './pages/Landing'
+import { BooksEntry } from './pages/BooksEntry'
+// import { SmallGrid } from './pages/SmallGrid'
+// import { NewItems } from './pages/NewItems'
+
+import svg4 from './images/1920x1080.svg'
 // import { CategoryList } from './CategoryList'
 
 export function App() {
   return (
-    <div className="wrapper">
-      <header>
-        <p>welcome back, 'person' </p>
-      </header>
+    <div>
+      <div className="container">
+        <header className="item-right">
+          <p>welcome back, 'person' </p>
+          <section>
+            <h1>LOREM IPSUM DOLOR</h1>
+          </section>
+          <section>
+            <p id="no-bg">everything in it's place</p>
+          </section>{' '}
+        </header>
 
-      {/* <------ I think this should all be "Landing/Home.tsx" ----> */}
-      <section>
-        <h1 id="app-title">LOREM IPSUM DOLOR</h1>
-      </section>
-      <section>
-        <p className="text-placement">everything in it's place</p>
-      </section>
-      {/* to here */}
-      <section>
-        <img src={svg} className="layer1" alt="wave" />
-        {/* <div className="button-placement">
-          <button>start</button>
-        </div> */}
-      </section>
-      <Books />
+        {/* <SignIn /> */}
+        <Books />
+        {/* <BooksEntry /> */}
+      </div>
+      {/* <img src={svg4} className="waves" id="--bottom" alt="wave" /> */}
+
+      {/* <NewItems /> */}
+      {/* <Landing /> */}
+
+      {/* <SmallGrid /> */}
+      {/* </div>{' '} */}
       <footer>by Amheiser</footer>
-
-      {/* <Books /> */}
     </div>
   )
 }

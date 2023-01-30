@@ -1,0 +1,366 @@
+:root {
+  font: 16px / 1 sans-serif;
+  --pale-blue: #cdf3fe;
+  --mid-blue: #ade4f2;
+  --teal: #64919d;
+  --fudgy: #f5cdab;
+  --milk-choc: #a87b54;
+  --chartreuse: #eaf59a;
+  --pale-grey: #dddddd;
+}
+
+* {
+  box-sizing: border-box;
+}
+@media screen {
+}
+body,
+html {
+  margin: 0;
+  min-height: 100%;
+  color: var(--milk-choc);
+  font-family: 'Sophia Pro', sans-serif;
+}
+// landing page layout -->
+// <--whole page -->
+.wrapper {
+  max-width: 20rem;
+  max-height: 100vh;
+  max-height: 100dvh;
+  background-color: var(--pale-blue);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  margin: 0.5rem auto;
+  overflow-x: hidden;
+}
+// <--whole page end -->
+// <------ top 1/2 ----- >
+.top {
+  display: grid;
+  gap: 1rem;
+  grid-template-rows: 2rem 2fr auto;
+}
+section {
+  display: flex;
+  min-height: auto;
+  width: 100%;
+}
+// #top {
+//   padding: 0;
+//   margin: 0;
+// }
+
+header {
+  border-radius: 2rem;
+  margin: 0.75rem;
+}
+
+#app-title-box {
+  height: 7rem;
+  flex-direction: column;
+  background-color: var(--mid-blue);
+  padding: 1.7rem;
+  border-radius: 1rem;
+  margin-bottom: 3.5rem;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 500;
+  text-shadow: (rgb(167, 165, 165) 1px 1px 3px);
+  margin: 1.5rem;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  text-align: end;
+}
+
+header p {
+  padding: 0.5rem;
+  border-radius: 1rem;
+  margin: 0.5rem;
+  background-color: var(--mid-blue);
+}
+
+.sec-row-grid p {
+  padding-top: 1rem;
+  height: 12rem;
+  width: 100%;
+  background-color: var(--mid-blue);
+  place-content: center;
+}
+
+.sec-row-grid {
+  display: grid;
+  grid-template-areas: 'stack';
+  place-items: center;
+  // margin-top: 8rem;
+}
+
+.sec-row-grid > * {
+  grid-area: stack;
+}
+
+.text-placement {
+  text-align: center;
+  text-decoration: none;
+}
+
+.layer2 {
+  display: block;
+  margin-top: -15rem;
+}
+
+section .text-placement {
+  height: 8rem;
+  border-radius: 0 1rem 0 0;
+}
+
+// <------ top above ----- >
+
+// <------ landing start ----- >
+
+.landing {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: 'stack';
+  place-items: center;
+  // margin-top: -4rem;
+}
+
+.landing > * {
+  grid-area: stack;
+  grid-row: 1/-1;
+}
+
+.button-styling {
+  background-color: var(--pale-blue);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  color: var(--milk-choc);
+  border: none;
+  font-weight: 300;
+}
+
+.teal {
+  // margin-top: 2rem;
+  height: 16rem;
+  width: 100%;
+  background-color: var(--teal);
+}
+
+.layer1 {
+  display: block;
+  height: 10rem;
+  width: 100%;
+  margin-top: -25rem;
+  // border: solid 2px red;
+}
+//  <-- landing end -->
+
+// <-- item landing
+
+.new-input {
+  display: grid;
+  grid-template-areas: 'stack';
+  place-items: center;
+  margin-top: 4rem;
+  // border: solid 2px red;
+}
+
+.new-input > * {
+  grid-area: stack;
+}
+
+// <--- books --- >
+
+.boxes {
+  display: grid;
+  grid-template-columns: 4rem 4rem;
+  grid-template-rows: 1fr;
+  gap: 0.5rem;
+  max-width: fit-content;
+  margin: 0 auto;
+}
+
+.forced-area {
+  height: 5rem;
+  width: 3.5rem;
+}
+.large {
+  grid-column: 3/4;
+  height: 10rem;
+  width: 8rem;
+}
+
+#nested {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0.25rem;
+  padding-left: 4rem;
+  background-color: var(--pale-blue);
+  justify-self: center;
+}
+
+#nested div {
+  padding: 1rem;
+  gap: 0.25rem;
+}
+
+.boxes div {
+  background: var(--mid-blue);
+  border-radius: 1rem;
+}
+
+.boxes div:hover {
+  background-color: var(--chartreuse);
+}
+
+.nested:hover {
+  background-color: var(--chartreuse);
+}
+
+h1 #menu-items {
+  margin-top: 0.4rem 0;
+  padding-top: 0.12rem;
+  padding-bottom: 5rem;
+  background-color: var(--teal);
+  overflow: hidden;
+}
+
+.summary-list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  list-style-type: none;
+  margin-top: 0;
+  padding: 1rem;
+  background-color: var(--teal);
+}
+
+.summary-list li a:active {
+  color: var(--chartreuse);
+  text-decoration: none;
+}
+
+.summary-list li {
+  color: var(--pale-grey);
+}
+
+.items-button {
+  height: 5rem;
+  width: 3.5rem;
+  margin: 0.2rem;
+  border-radius: 1rem;
+  border: none;
+  background-color: var(--pale-blue);
+}
+//  <-- books end -->
+
+// <--- item details start -->
+
+#entry {
+  display: grid;
+}
+
+.new {
+  background-color: rgb(174, 174, 174);
+  color: var(--chartreuse);
+}
+
+nav {
+  text-align: right;
+  padding-left: 14rem;
+  padding-top: 3rem;
+  margin-right: 0.75rem;
+  // border: solid 2px pink;
+}
+nav .subhead {
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--chartreuse);
+}
+.photo-op {
+  height: 6rem;
+  width: 18rem;
+  margin: 0;
+  background: var(--mid-blue);
+  border-radius: 1rem;
+
+  // border: 2px solid limegreen;
+}
+.form-input {
+  height: 35rem;
+  margin-top: -14rem;
+  width: 100%;
+  background: var(--teal);
+  // border: solid 2px red;
+}
+
+.entry-form {
+  height: 18rem;
+  background: var(--teal);
+  color: var(--chartreuse);
+  display: grid;
+  gap: 1.25rem;
+  margin: -3.5rem 0.5rem;
+  // border: 2px solid orange;
+}
+
+.form-group {
+  display: grid;
+  place-self: center;
+  gap: 0.5rem;
+  // border: 2px solid white;
+}
+
+label {
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: var(--chartreuse);
+  text-align: center;
+}
+.layer3 {
+  display: block;
+  height: 10rem;
+  width: 100%;
+  margin-top: -8.25rem;
+  // border: solid 2px var(--milk-choc);
+}
+
+input {
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  background-color: var(--pale-blue);
+  box-shadow: (rgb(59, 58, 58) 1px 1px 3px);
+  color: var(--milk-choc);
+}
+.form {
+  display: grid;
+  grid-template-areas: 'stack';
+  place-items: center;
+}
+
+.form > * {
+  grid-area: stack;
+}
+
+.submit {
+  display: block;
+  padding: 0.5rem;
+  margin: 0;
+  border-radius: 2rem;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2rem;
+  padding: 1rem 6rem;
+  font-size: 0.8rem;
+  background-color: var(--teal);
+  color: var(--pale-blue);
+}
