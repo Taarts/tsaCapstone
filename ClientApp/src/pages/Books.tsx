@@ -17,14 +17,16 @@ export function Books() {
     // <----->
     <>
       <section>
+        <p>Access & Create</p>
         <div className="categories">
-          <div id="nested">
+          <ul id="nested">
             {' '}
-            <button className="items-button">props</button>
-            <button className="items-button">mags</button>
-            <button className="items-button">books</button>
-            <button className="items-button">new</button>
-          </div>
+            {/* pull the "category names" thro to map over these eventually  */}
+            <li className="items-button">props</li>
+            <li className="items-button">mags</li>
+            <li className="items-button">books</li>
+            <li className="items-button">new</li>
+          </ul>
           <div className="large">Last edited</div>
         </div>
       </section>
@@ -42,7 +44,7 @@ export function Books() {
           {books.map(function (book) {
             return (
               <li key={book.id}>
-                <h2 className="items-button">{book.title}</h2>
+                <button className="items-button">{book.title}</button>
               </li>
             )
           })}
@@ -63,9 +65,9 @@ export function Books() {
           </li>
           <li>
             {/* <Link to={`/book/$title`}> */}
-
-            <button className="items-button new">new</button>
-            {/* </Link> */}
+            <button className="items-button new">
+              <Link to={`$/BooksEntry`}>new</Link>
+            </button>
           </li>
         </ul>
         {/* </div> */}

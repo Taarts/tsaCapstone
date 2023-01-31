@@ -12,7 +12,7 @@ import svg4 from './images/1920x1080.svg'
 
 export function App() {
   return (
-    <div>
+    <div className="bg-everything">
       <div className="container">
         <header className="item-right">
           <p>welcome back, 'person' </p>
