@@ -31,11 +31,20 @@ namespace tsaCapstone.Controllers
         // Returns a list of all your Books
         //
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Book>>> GetBooks()
+        public async Task<ActionResult<IEnumerable<Book>>> GetBooks(string filter)
         {
             // Uses the database context in `_context` to request all of the Books, sort
             // them by row id and return them as a JSON array.
-            return await _context.Books.OrderBy(row => row.Id).ToListAsync();
+            if (filter == null)
+            {
+                return await _context.Books.OrderBy(row => row.Title).ToListAsync();
+            }
+            else
+            {
+                return await _context.Books.OrderBy(row => row.Title).
+                Where(book => book.Title.ToLower().Contains(filter.ToLower())).
+                ToListAsync();
+            }
         }
 
         // GET: api/Books/5

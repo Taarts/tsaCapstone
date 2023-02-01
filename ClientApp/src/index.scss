@@ -75,6 +75,21 @@ nav p {
   text-align: right;
   padding-right: 1.5rem;
 }
+//  <--search -->
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+
+  margin: 0.5rem;
+  padding: 0.5rem;
+  height: 2rem;
+}
+.search input {
+  border: none;
+  padding: 0.5rem;
+}
+
 //  <-- forms -->
 
 .signIn {

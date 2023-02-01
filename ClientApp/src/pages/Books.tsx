@@ -39,7 +39,9 @@ export function Books() {
             <p className="subhead">BOOKS</p>
           </nav>
         </div>
-
+        <form className="search">
+          <input type="text" placeholder="search..." />
+        </form>
         {/* <div id="results"> */}
         <ul className="results">
           {books.map(function (book) {
