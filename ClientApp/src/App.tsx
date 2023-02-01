@@ -12,30 +12,32 @@ import svg4 from './images/1920x1080.svg'
 
 export function App() {
   return (
-    <div className="bg-everything">
-      <div className="container">
-        <header className="item-right">
-          <p>welcome back, 'person' </p>
-          <section>
-            <h1>LOREM IPSUM DOLOR</h1>
-          </section>
-          <section>
-            <p id="no-bg">everything in it's place</p>
-          </section>{' '}
-        </header>
+    <>
+      <div className="bg-img">
+        {/* <img src={svg4} className="layer1" alt="wave" /> */}
+        <div className="container">
+          <header>
+            <p>welcome back, 'person' </p>
+            <section>
+              <h1>LOREM IPSUM DOLOR</h1>
+            </section>
+            <section id="no-bg">
+              <p>everything in it's place</p>
+            </section>{' '}
+          </header>
 
-        {/* <SignIn /> */}
-        <Books />
-        {/* <BooksEntry /> */}
+          {/* <SignIn /> */}
+          <Books />
+          {/* <BooksEntry /> */}
+        </div>
+
+        {/* <NewItems /> */}
+        {/* <Landing /> */}
+
+        {/* <SmallGrid /> */}
+        {/* </div>{' '} */}
+        <footer>by Amheiser</footer>
       </div>
-      {/* <img src={svg4} className="waves" id="--bottom" alt="wave" /> */}
-
-      {/* <NewItems /> */}
-      {/* <Landing /> */}
-
-      {/* <SmallGrid /> */}
-      {/* </div>{' '} */}
-      <footer>by Amheiser</footer>
-    </div>
+    </>
   )
 }

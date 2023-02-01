@@ -16,7 +16,7 @@ export function Books() {
   return (
     // <----->
     <>
-      <section>
+      <section className="first-contact">
         <p>Access & Create</p>
         <div className="categories">
           <ul id="nested">
@@ -49,22 +49,6 @@ export function Books() {
             )
           })}
           <li>
-            {/* <Link to={`/book/$title`}> */}
-            <button className="items-button">TOY</button>
-            {/* </Link> */}
-          </li>
-          <li>
-            {/* <Link to={`/book/$title`}> */}
-            <button className="items-button">BKS</button>
-            {/* </Link> */}
-          </li>
-          <li>
-            {/* <Link to={`/book/$title`}> */}
-            <button className="items-button">YAM</button>
-            {/* </Link> */}
-          </li>
-          <li>
-            {/* <Link to={`/book/$title`}> */}
             <button className="items-button new">
               <Link to={`$/BooksEntry`}>new</Link>
             </button>

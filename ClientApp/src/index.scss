@@ -7,20 +7,25 @@
   --milk-choc: #a87b54;
   --chartreuse: #eaf59a;
   --pale-grey: #dddddd;
-  --bg-image: url(./src/images/1920x1080.svg);
+  --bg-image: url(./images/1920x1080.svg);
+  --svg-curve: url(./images/64919D_curve_sin.svg);
 }
 
 * {
   box-sizing: border-box;
 }
 
-.bg-everything {
+.bg-img {
   background-image: var(--bg-image);
   background-size: cover;
   background-repeat: no-repeat;
   // background-position: center;
   background-attachment: fixed;
   background-color: #cdf3fe;
+}
+a {
+  text-decoration: none;
+  color: var(--milk-choc);
 }
 
 ul {
@@ -36,7 +41,10 @@ button {
   color: var(--milk-choc);
 }
 
-@media (min-width: 48.75rem) {
+@media (max-width: 28.875rem) {
+  #no-big p {
+    display: none;
+  }
 }
 
 body,
@@ -49,6 +57,23 @@ html {
 header h1 {
   font-size: 2rem;
   font-weight: 500;
+}
+
+header p {
+  background-color: var(--mid-blue);
+  padding: 0.5rem;
+  border-radius: 1rem;
+}
+
+#no-bg p {
+  background-color: var(--pale-blue);
+  text-align: right;
+}
+
+nav p {
+  color: var(--chartreuse);
+  text-align: right;
+  padding-right: 1.5rem;
 }
 //  <-- forms -->
 
@@ -150,6 +175,10 @@ button {
   border-radius: 0.5rem;
 }
 
+.first-contact {
+  transform: translate(0, -5rem);
+}
+
 .categories li:hover,
 .items-button:hover,
 .large:hover {
@@ -165,8 +194,7 @@ button {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   gap: 0.25rem;
-  padding-left: 4rem;
-  // background-color: white;
+  padding-left: 3.5rem;
   justify-self: center;
 }
 
