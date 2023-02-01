@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import svg1 from '/src/images/64919D_sin.svg'
 
 import { BookType } from '../types'
+import { SingleBookFromList } from '../components/SingleBookFromList'
 
 export function Books() {
   const { data: books = [] } = useQuery<BookType[]>('books', async function () {
@@ -42,11 +43,7 @@ export function Books() {
         {/* <div id="results"> */}
         <ul className="results">
           {books.map(function (book) {
-            return (
-              <li key={book.id}>
-                <button className="items-button">{book.title}</button>
-              </li>
-            )
+            return <SingleBookFromList key={book.id} book={book} />
           })}
           <li>
             <button className="items-button new">
