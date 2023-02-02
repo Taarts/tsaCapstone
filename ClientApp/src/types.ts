@@ -12,5 +12,5 @@ export type BookType = {
 }
 
 export type CategoryListProps = {
-  title: string
+  name: string
 }

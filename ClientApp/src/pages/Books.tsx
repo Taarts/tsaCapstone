@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useQuery } from 'react-query'
 import { Link } from 'react-router-dom'
 import svg1 from '/src/images/64919D_sin.svg'
@@ -7,12 +7,22 @@ import { BookType } from '../types'
 import { SingleBookFromList } from '../components/SingleBookFromList'
 
 export function Books() {
-  const { data: books = [] } = useQuery<BookType[]>('books', async function () {
-    const response = await fetch('/api/Books')
+  const [filterText, setFilterText] = useState('')
 
-    // react query does the waiting for you
-    return response.json()
-  })
+  const { data: books = [] } = useQuery<BookType[]>(
+    ['books', filterText],
+    async function () {
+      const response = await fetch(
+        filterText.length === 0
+          ? '/api/books'
+          : `/api/books?filter=${filterText}`
+      )
+
+      // react query does the waiting for you
+      return response.json()
+    }
+  )
+
   console.log({ books }) // this data from the api is not showing up
   return (
     // <----->
@@ -40,7 +50,14 @@ export function Books() {
           </nav>
         </div>
         <form className="search">
-          <input type="text" placeholder="search..." />
+          <input
+            type="text"
+            placeholder="search..."
+            value={filterText}
+            onChange={function (event) {
+              setFilterText(event.target.value)
+            }}
+          />
         </form>
         {/* <div id="results"> */}
         <ul className="results">

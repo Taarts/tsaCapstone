@@ -37,12 +37,12 @@ namespace tsaCapstone.Controllers
             // them by row id and return them as a JSON array.
             if (filter == null)
             {
-                return await _context.Books.OrderBy(row => row.Title).ToListAsync();
+                return await _context.Books.OrderBy(row => row.Id).ToListAsync();
             }
             else
             {
-                return await _context.Books.OrderBy(row => row.Title).
-                Where(book => book.Title.ToLower().Contains(filter.ToLower())).
+                return await _context.Books.OrderBy(row => row.Id).
+                Where(book => book.Title.ToLower().Contains(filter.ToLower()) || book.Author.ToLower().Contains(filter.ToLower())).
                 ToListAsync();
             }
         }
