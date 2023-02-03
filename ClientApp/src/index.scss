@@ -1,5 +1,6 @@
 :root {
   font: 16px / 1 sans-serif;
+  --font-family: sofia-pro, sans-serif;
   --pale-blue: #cdf3fe;
   --mid-blue: #ade4f2;
   --teal: #64919d;
@@ -65,24 +66,51 @@ header p {
   border-radius: 1rem;
 }
 
-#no-bg p {
+header p:nth-child(2) {
   background-color: var(--pale-blue);
   text-align: right;
 }
 
-nav p {
-  color: var(--chartreuse);
+.nav p {
   text-align: right;
-  padding-right: 1.5rem;
+  grid-template-areas: '. subhead';
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  background-color: var(--milk-choc);
+  color: var(--pale-blue);
 }
+
+.nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: 'subhead subhead';
+  margin-bottom: 2rem;
+  gap: 0.25rem;
+  align-items: center;
+}
+
+.subhead nav {
+  grid-area: subhead;
+}
+
+.subhead {
+  grid-area: books;
+}
+
+.new-input nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.new-input nav p {
+  padding: 0.5rem 3rem;
+}
+
 //  <--search -->
 .search {
   display: flex;
   justify-content: center;
-  align-items: end;
-
-  margin: 0.5rem;
-  padding: 0.5rem;
   height: 2rem;
 }
 .search input {
@@ -96,42 +124,60 @@ nav p {
   display: grid;
   gap: 1.25rem;
 }
-form {
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: space-around;
-  align-items: center;
-  height: 100%;
-  margin: 0.5rem;
-  border: 2px solid green;
-}
 
-.form-group {
+.entry-form {
   display: grid;
   gap: 0.5rem;
 }
 
-label {
-  text-align: left;
+form {
+  // display: flex;
+  // flex-flow: column wrap;
+  // justify-content: flex-start;
+  // align-content: stretch;
+  height: 100%;
   margin: 0.5rem;
 }
 
-input {
-  margin: 0 0.5rem;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-  border: 1px solid var(--milk-choc);
+.form-group {
+  display: grid;
+  width: 100%;
+  // gap: 0.5rem;
+}
+
+label {
+  text-align: left;
+  margin-top: 0;
+  padding: 0.25rem 1rem;
+  border: 2px solid var(--pale-grey);
+  border-radius: 0.25rem;
+  font-family: var(--font-family);
   background-color: var(--pale-grey);
+}
+
+.search > label {
+  color: var(--milk-choc);
+  font-weight: 700;
+}
+
+textarea {
+  padding: 0 0.75rem;
+  border-radius: 0.5rem;
+  background-color: var(--pale-blue);
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 400;
   color: var(--milk-choc);
   justify-content: flex-end;
+  width: 20rem;
+  font-family: var(--font-family);
 }
 
 button {
-  margin: 0 auto;
-  padding: 0.5rem 1rem;
+  margin: 0.5rem auto;
+  padding: 0.25rem 1rem;
   border-radius: 0.5rem;
+  background-color: var(--fudgy);
+  font-weight: 700;
 }
 
 //  <-- forms end -->
@@ -164,8 +210,6 @@ button {
   background: var(--mid-blue);
   border-radius: 1rem;
   padding: 3.5rem 5.5rem;
-  // grid-column-start: 1;
-  // grid-column-end: span col2-end;
   grid-column: 3/4;
   height: 11rem;
   width: 8rem;
@@ -191,7 +235,18 @@ button {
 }
 
 .first-contact {
-  transform: translate(0, -5rem);
+  display: flex;
+  flex-direction: row;
+  // flex: 1;
+  justify-content: space-evenly;
+  align-content: flex-end;
+  transform: translate(0, -2rem);
+}
+
+.first-contact p {
+  display: inline-block;
+  // padding: 1rem 0;
+  // align-items: baseline;
 }
 
 .categories li:hover,
@@ -211,6 +266,7 @@ button {
   gap: 0.25rem;
   padding-left: 3.5rem;
   justify-self: center;
+  border: 2px solid lime;
 }
 
 #nested button {
@@ -218,14 +274,33 @@ button {
   gap: 0.25rem;
   border: 2px solid var(--milk-choc);
 }
+.text-placement {
+  display: flex;
+  flex-direction: column;
+  padding-right: 1rem;
+  align-items: center;
+}
 
+.new-input {
+  color: var(--chartreuse);
+  text-align: end;
+}
+
+.search input {
+  color: var(--milk-choc);
+  background-color: var(--pale-grey);
+  border-radius: 0.25rem;
+  align-content: stretch;
+}
 .results {
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
   list-style-type: none;
-  margin-top: 0;
+  margin: 0 auto;
   padding: 1rem;
+  max-width: 25rem;
+  // border: 2px solid lime;
   // background-color: var(--teal);
 }
 
@@ -260,6 +335,7 @@ button {
   margin: 0 auto;
   // border: 2px solid yellow;
 }
+// <--- Landing --->
 
 footer {
   display: flex;

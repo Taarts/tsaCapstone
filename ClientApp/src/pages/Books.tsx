@@ -25,48 +25,33 @@ export function Books() {
 
   console.log({ books }) // this data from the api is not showing up
   return (
-    // <----->
+    // <-- Search function to return a book--->
     <>
-      <section className="first-contact">
-        <p>Access & Create</p>
-        <div className="categories">
-          <ul id="nested">
-            {' '}
-            {/* pull the "category names" thro to map over these eventually  */}
-            <li className="items-button">props</li>
-            <li className="items-button">mags</li>
-            <li className="items-button">books</li>
-            <li className="items-button">new</li>
-          </ul>
-          <div className="large">Last edited</div>
-        </div>
-      </section>
-
       <section className="new-input">
-        {/* <img src={svg1} className="layer1" alt="wave" /> */}
-        <div className="text-placement">
-          <nav className="nav">
-            <p className="subhead">BOOKS</p>
-          </nav>
-        </div>
-        <form className="search">
-          <input
-            type="text"
-            placeholder="search..."
-            value={filterText}
-            onChange={function (event) {
-              setFilterText(event.target.value)
-            }}
-          />
-        </form>
-        {/* <div id="results"> */}
+        <nav className="nav">
+          <form className="search">
+            <label htmlFor="Books">BOOKS</label>
+            <input
+              type="text"
+              placeholder="search..."
+              value={filterText}
+              onChange={function (event) {
+                setFilterText(event.target.value)
+              }}
+            />
+          </form>
+        </nav>
+        {/* </div> */}
+
         <ul className="results">
           {books.map(function (book) {
             return <SingleBookFromList key={book.id} book={book} />
           })}
+
+          {/* adding new item to list (book) */}
           <li>
             <button className="items-button new">
-              <Link to={`$/BooksEntry`}>new</Link>
+              <Link to="/BooksEntry">new</Link>
             </button>
           </li>
         </ul>
