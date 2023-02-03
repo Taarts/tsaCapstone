@@ -7,8 +7,11 @@ export type BookType = {
   id: number | undefined
   title: string
   author: string
-  description: string
+  publisher: string
+  publicationDate: string
   ISBN: string
+  quantity: string
+  nickName: string
 }
 
 // export type CategoryType = {

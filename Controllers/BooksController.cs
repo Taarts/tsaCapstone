@@ -37,15 +37,20 @@ namespace tsaCapstone.Controllers
             // them by row id and return them as a JSON array.
             if (filter == null)
             {
-                return await _context.Books.OrderBy(row => row.Id).ToListAsync();
+                return await _context.Books.ToListAsync();
             }
             else
             {
-                return await _context.Books.OrderBy(row => row.Id).
-                Where(book => book.Title.ToLower().Contains(filter.ToLower()) || book.Author.ToLower().Contains(filter.ToLower())).
-                ToListAsync();
+                return await _context.Books.Where(book => book.Title.ToLower().Contains(filter.ToLower())).ToListAsync();
             }
         }
+
+        //     {
+        //         // Uses the database context in `_context` to request all of the Books, sort
+        //         // them by row id and return them as a JSON array.
+        //         return await _context.Books.OrderBy(row => row.Id).ToListAsync();
+        // }
+
 
         // GET: api/Books/5
         //

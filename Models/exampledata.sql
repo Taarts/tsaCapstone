@@ -1,6 +1,6 @@
 TRUNCATE TABLE "Books" RESTART IDENTITY;
 
-INSERT INTO "Books" ("Title", "Author", "Description", "ISBN") VALUES ('Yoga- A Gem for Women', 'Geeta S. Iyengar', '1990: First paperback edition', '978-0931454202');
-INSERT INTO "Books" ("Title", "Author", "Description", "ISBN") VALUES ('The Tree of Yoga', 'B.K.S Iyengar', '1995', '978-0007921270');
-INSERT INTO "Books" ("Title", "Author", "Description", "ISBN") VALUES ('Iyengar- His Life and Work', 'B.K.S Iyengar', 'Iyengar was named one of the 100 most influential people in the world by Time Magazine. This is his story', '978-0931454141');
-INSERT INTO "Books" ("Title", "Author", "Description", "ISBN") VALUES ('Yoga As Medicine- The Yogic Prescription for Health and Healing', 'Timothy McCall, M.D.', 'Yoga as Medicine offers a wealth of practical information', '978-0553384062');
+INSERT INTO "Books" ("Title", "Author", "Publisher", "PublicationDate", "ISBN", "Quantity", "NickName") VALUES ('Yoga- A Gem for Women', 'Geeta S. Iyengar', 'Timeless Books', '1990', '978-0931454202', '1', 'Gem');
+INSERT INTO "Books" ("Title", "Author", "Publisher", "PublicationDate", "ISBN", "Quantity", "NickName") VALUES ('The Tree of Yoga', 'B.K.S Iyengar', 'INDUS- an imprint of HarperCollins Publishers India Pvt Ltd', '1995', '978-0007921270', '1', 'Tree');
+INSERT INTO "Books" ("Title", "Author", "Publisher", "PublicationDate", "ISBN", "Quantity", "NickName") VALUES ('Iyengar- His Life and Work', 'B.K.S Iyengar', 'INDUS- an imprint of HarperCollins Publishers India Pvt Ltd', '1987', '978-0931454141', '1', 'Iyengar'  );
+INSERT INTO "Books" ("Title", "Author", "Publisher", "PublicationDate", "ISBN", "Quantity", "NickName") VALUES ('Yoga As Medicine- The Yogic Prescription for Health and Healing', 'Timothy McCall, M.D.', 'INDUS- an imprint of HarperCollins Publishers India Pvt Ltd', '2007', '978-0553384062', '1', 'Medicine' );

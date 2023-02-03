@@ -33,7 +33,7 @@ export function App() {
                 <li className="items-button">props</li>
                 <li className="items-button">mags</li>
                 <li className="items-button">books</li>
-                <Link to="/BooksEntry">
+                <Link to="#">
                   <li className="items-button">new</li>
                 </Link>
               </ul>

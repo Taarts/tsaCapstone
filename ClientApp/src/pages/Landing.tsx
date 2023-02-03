@@ -1,5 +1,5 @@
 import React from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Link } from 'react-router-dom'
 
 export function Landing() {
   return (
@@ -7,10 +7,12 @@ export function Landing() {
       <section className="sec-row-grid">
         {/* <section className="landing"> */}
         <nav className="nav">
-          <p className="subhead" Link to="SignIn">
-            SIGN IN
-          </p>
-          <p className="subhead">SIGN UP</p>
+          <Link to="SignIn">
+            <p className="subhead">SIGN IN</p>
+          </Link>
+          <Link to="SignUp">
+            <p className="subhead">SIGN UP</p>
+          </Link>
         </nav>
         {/* </section> */}
       </section>

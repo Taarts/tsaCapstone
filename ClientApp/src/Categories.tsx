@@ -2,9 +2,6 @@ import React, { useState } from 'react'
 import { useQuery } from 'react-query'
 import { Link } from 'react-router-dom'
 
-import { CategoryType } from './types'
-import { SingleCategoryFromList } from './components/SingleCategoryFromList'
-
 export function Categories() {
   const [filterText, setFilterText] = useState('')
 

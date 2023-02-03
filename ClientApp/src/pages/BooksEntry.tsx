@@ -22,8 +22,11 @@ export function BooksEntry() {
     id: undefined,
     title: '',
     author: '',
-    description: '',
+    publisher: '',
+    publicationDate: '',
     ISBN: '',
+    quantity: '',
+    nickName: '',
   })
   const createNewBook = useMutation(submitNewBook, {
     onSuccess: function () {
@@ -80,11 +83,20 @@ export function BooksEntry() {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="description">Description</label>
+              <label htmlFor="publisher">Publisher</label>
               <textarea
-                id="description"
-                name="description"
-                value={newBook.description}
+                id="publisher"
+                name="publisher"
+                value={newBook.publisher}
+                onChange={handleStringFieldChange}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="publicationDate">Publication Date</label>
+              <textarea
+                id="publicationDate"
+                name="publicationDate"
+                value={newBook.publicationDate}
                 onChange={handleStringFieldChange}
               />
             </div>
@@ -94,6 +106,24 @@ export function BooksEntry() {
                 id="ISBN"
                 name="ISBN"
                 value={newBook.ISBN}
+                onChange={handleStringFieldChange}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="quantity">Quantity</label>
+              <textarea
+                id="quantity"
+                name="quantity"
+                value={newBook.quantity}
+                onChange={handleStringFieldChange}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="nickName">Nick-Name</label>
+              <textarea
+                id="nickName"
+                name="nickName"
+                value={newBook.nickName}
                 onChange={handleStringFieldChange}
               />
             </div>

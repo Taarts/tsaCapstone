@@ -9,7 +9,7 @@ using tsaCapstone.Models;
 namespace tsaCapstone.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20230123193837_CreateBook")]
+    [Migration("20230203211821_CreateBook")]
     partial class CreateBook
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -28,15 +28,27 @@ namespace tsaCapstone.Migrations
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<string>("Author")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("ISBN")
                         .HasColumnType("text");
 
+                    b.Property<string>("NickName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("PublicationDate")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Publisher")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Quantity")
+                        .HasColumnType("text");
+
                     b.Property<string>("Title")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");

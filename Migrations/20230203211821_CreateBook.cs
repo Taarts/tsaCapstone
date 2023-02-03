@@ -13,10 +13,13 @@ namespace tsaCapstone.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Title = table.Column<string>(type: "text", nullable: true),
-                    Author = table.Column<string>(type: "text", nullable: true),
-                    Description = table.Column<string>(type: "text", nullable: true),
-                    ISBN = table.Column<string>(type: "text", nullable: true)
+                    Title = table.Column<string>(type: "text", nullable: false),
+                    Author = table.Column<string>(type: "text", nullable: false),
+                    Publisher = table.Column<string>(type: "text", nullable: true),
+                    PublicationDate = table.Column<string>(type: "text", nullable: true),
+                    ISBN = table.Column<string>(type: "text", nullable: true),
+                    Quantity = table.Column<string>(type: "text", nullable: true),
+                    NickName = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {
