@@ -4,7 +4,7 @@ import { BookType } from '../types'
 export function SingleBookFromList(props: SingleBookFromListProps) {
   return (
     <li key={props.book.id}>
-      <button className="items-button">{props.book.title}</button>
+      <button className="items-button">{props.book.nickName}</button>
     </li>
   )
 }

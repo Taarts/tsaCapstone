@@ -335,6 +335,17 @@ button {
   margin: 0 auto;
   // border: 2px solid yellow;
 }
+// <-- form-errors -->
+.form-error {
+  padding: 0.5rem;
+  font-size: 1.25rem;
+  background-color: var(--chartreuse);
+  color: var(--teal);
+}
+
+input:required {
+  background: var(--chartreuse);
+}
 // <--- Landing --->
 
 footer {

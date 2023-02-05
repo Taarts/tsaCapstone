@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import svg3 from '/src/images/64919D_curve_sin.svg'
 
 import { BookType } from '../types'
+import { APIError } from '../types'
 import { useNavigate } from 'react-router'
 
 async function submitNewBook(bookToCreate: BookType) {
@@ -12,8 +13,11 @@ async function submitNewBook(bookToCreate: BookType) {
     headers: { 'content-type': 'application/json' },
     body: JSON.stringify(bookToCreate),
   })
-
-  return response.json()
+  if (response.ok) {
+    return response.json()
+  } else {
+    throw await response.json()
+  }
 }
 
 export function BooksEntry() {
@@ -28,9 +32,15 @@ export function BooksEntry() {
     quantity: '',
     nickName: '',
   })
+  // this works sometimes?? w....t....f
+  const [errorMessage, setErrorMessage] = useState('')
+
   const createNewBook = useMutation(submitNewBook, {
     onSuccess: function () {
       navigate('/books')
+    },
+    onError: function (apiError: APIError) {
+      const newMessage = Object.values(apiError.errors).join(' ')
     },
   })
 
@@ -57,6 +67,7 @@ export function BooksEntry() {
           </Link>
         </nav>
         {/* must use prevent default with <form> */}
+        {errorMessage ? <p className="form-error">{errorMessage}</p> : null}
         <form
           onSubmit={(event) => {
             event.preventDefault()
@@ -67,6 +78,7 @@ export function BooksEntry() {
             <div className="form-group">
               <label htmlFor="title">Title</label>
               <textarea
+                required
                 id="title"
                 name="title"
                 value={newBook.title}
@@ -76,6 +88,7 @@ export function BooksEntry() {
             <div className="form-group">
               <label htmlFor="author">Author</label>
               <textarea
+                required
                 id="author"
                 name="author"
                 value={newBook.author}
@@ -121,6 +134,7 @@ export function BooksEntry() {
             <div className="form-group">
               <label htmlFor="nickName">Nick-Name</label>
               <textarea
+                required
                 id="nickName"
                 name="nickName"
                 value={newBook.nickName}
@@ -133,11 +147,6 @@ export function BooksEntry() {
           </div>
         </form>
       </section>
-      {/* id: number
-  title: string
-  author: string
-  description: string
-  ISBN: string */}
     </>
   )
 }

@@ -14,6 +14,14 @@ export type BookType = {
   nickName: string
 }
 
+export type APIError = {
+  errors: Record<string, string[]>
+  status: number
+  title: string
+  traceId: string
+  type: string
+}
+
 // export type CategoryType = {
 //   name: string | undefined
 // }
