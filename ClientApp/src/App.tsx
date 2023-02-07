@@ -5,7 +5,7 @@ import { Books } from './pages/Books'
 import { SignIn } from './pages/SignIn'
 import { Landing } from './pages/Landing'
 import { BooksEntry } from './pages/BooksEntry'
-import { Categories } from './Categories'
+import { Book } from './pages/Book'
 
 // import { SmallGrid } from './pages/SmallGrid'
 // import { NewItems } from './pages/NewItems'
@@ -48,6 +48,7 @@ export function App() {
             {/* <Route path="SignUp" element={<SignUp />} /> */}
             <Route path="books" element={<Books />} />
             <Route path="BooksEntry" element={<BooksEntry />} />
+            <Route path="/books/:id" element={<Book />} />
           </Routes>
         </div>
 

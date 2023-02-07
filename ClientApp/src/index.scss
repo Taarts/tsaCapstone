@@ -35,11 +35,17 @@ ul {
 }
 li {
   list-style-type: none;
-  padding: 0.5rem;
+  padding: 0.25rem;
+  text-orientation: sideways-right;
 }
 button {
   text-align: center;
   color: var(--milk-choc);
+  margin: 0.5rem auto;
+  padding: 0.25rem 1rem;
+  border-radius: 0.5rem;
+  background-color: var(--fudgy);
+  font-weight: 700;
 }
 
 @media (max-width: 28.875rem) {
@@ -170,14 +176,6 @@ textarea {
   justify-content: flex-end;
   width: 20rem;
   font-family: var(--font-family);
-}
-
-button {
-  margin: 0.5rem auto;
-  padding: 0.25rem 1rem;
-  border-radius: 0.5rem;
-  background-color: var(--fudgy);
-  font-weight: 700;
 }
 
 //  <-- forms end -->
@@ -317,10 +315,18 @@ button {
   height: 5.28rem;
   width: 3.5rem;
   margin: 1px 1px;
-  border-radius: 1rem;
+  border-radius: 0.2rem;
   border: none;
   background-color: var(--pale-blue);
   color: var(--milk-choc);
+}
+
+.One-list-item {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--pale-grey);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
 }
 
 //  <-- books end -->
