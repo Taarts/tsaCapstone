@@ -28,7 +28,7 @@ export function BooksEntry() {
     author: '',
     publisher: '',
     publicationDate: '',
-    ISBN: '',
+    isbn: '',
     quantity: '',
     nickName: '',
   })
@@ -59,14 +59,12 @@ export function BooksEntry() {
     // <----->
     <>
       <section className="form">
-        {/* <img src={svg3} className="layer1" alt="wave" /> */}
-
         <nav className="nav">
           <Link to="/books">
             <p>BOOKS</p>
           </Link>
         </nav>
-        {/* must use prevent default with <form> */}
+
         {errorMessage ? <p className="form-error">{errorMessage}</p> : null}
         <form
           onSubmit={(event) => {
@@ -118,7 +116,7 @@ export function BooksEntry() {
               <textarea
                 id="ISBN"
                 name="ISBN"
-                value={newBook.ISBN}
+                value={newBook.isbn}
                 onChange={handleStringFieldChange}
               />
             </div>

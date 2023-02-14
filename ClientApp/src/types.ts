@@ -9,7 +9,7 @@ export type BookType = {
   author: string
   publisher: string
   publicationDate: string
-  ISBN: string
+  isbn: string
   quantity: string
   nickName: string
 }

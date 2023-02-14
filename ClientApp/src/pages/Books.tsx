@@ -50,9 +50,9 @@ export function Books() {
 
           {/* adding new item to list (book) */}
           <li>
-            <button className="items-button new">
-              <Link to="/BooksEntry">new</Link>
-            </button>
+            <Link to="/books/new">
+              <button className="items-button new">new</button>
+            </Link>
           </li>
         </ul>
         {/* </div> */}

@@ -6,10 +6,9 @@ export function SingleBookFromList(props: SingleBookFromListProps) {
   return (
     <li>
       {/* <h2>{props.book.title}</h2> */}
-      <button className="items-button">
-        <Link to={`/books/${props.book.id}`}>{props.book.id}</Link>{' '}
-        {/* /\/\/\/\<--- why? */}
-      </button>
+      <Link to={`/books/${props.book.id}`}>
+        <button className="items-button">{props.book.nickName}</button>
+      </Link>{' '}
     </li>
     // <button>edit</button>
   )

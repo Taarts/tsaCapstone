@@ -61,10 +61,14 @@ html {
   color: var(--milk-choc);
 }
 
-header h1 {
+h1 {
   font-size: 2rem;
   font-weight: 500;
 }
+
+// header section {
+//   text-shadow: 2px 2px 4px var(grey);
+// }
 
 header p {
   background-color: var(--mid-blue);
@@ -72,9 +76,26 @@ header p {
   border-radius: 1rem;
 }
 
-header p:nth-child(2) {
-  background-color: var(--pale-blue);
+header p:nth-child(3) {
+  // background-color: var(--pale-blue);
   text-align: right;
+}
+
+.top {
+  display: flex;
+  // flex-direction: column;
+  // justify-content: space-between;
+  // align-items: left;
+  // padding: 0.5rem;
+  background-color: var(--mid-blue);
+  border-radius: 1rem;
+  height: 2rem;
+}
+
+.top header p {
+  margin: 0;
+  padding: 0.5rem 1rem;
+  background-color: none;
 }
 
 .nav p {
@@ -106,11 +127,12 @@ header p:nth-child(2) {
 .new-input nav {
   display: flex;
   justify-content: center;
+  padding: 0.5rem 3rem;
   align-items: center;
 }
 
-.new-input nav p {
-  padding: 0.5rem 3rem;
+.new-input nav a {
+  transform: translateX(90deg);
 }
 
 //  <--search -->
@@ -211,7 +233,7 @@ textarea {
   grid-column: 3/4;
   height: 11rem;
   width: 8rem;
-  margin: 0 -1rem;
+  margin: 0 1rem;
 }
 
 // <-- small-grid end -->
@@ -219,14 +241,11 @@ textarea {
 // <-- DB Categories-->
 .categories {
   display: grid;
-  // grid-auto-flow: column;
   grid-template-columns: 4rem 4rem;
-  // grid-template-rows: 1fr;
   gap: 0.5rem;
   max-width: fit-content;
-  margin: 0 auto;
-  // border: 2px solid blue;
 }
+
 .categories li {
   background: var(--mid-blue);
   border-radius: 0.5rem;
@@ -242,9 +261,7 @@ textarea {
 }
 
 .first-contact p {
-  display: inline-block;
-  // padding: 1rem 0;
-  // align-items: baseline;
+  transform: translateX(-3rem 0);
 }
 
 .categories li:hover,
@@ -262,9 +279,9 @@ textarea {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   gap: 0.25rem;
-  padding-left: 3.5rem;
+  padding-left: 0.5rem;
+  padding-right: 2.5rem;
   justify-self: center;
-  border: 2px solid lime;
 }
 
 #nested button {
@@ -302,13 +319,8 @@ textarea {
   // background-color: var(--teal);
 }
 
-.results li {
-  color: var(--chartreuse);
-  text-decoration: none;
-}
-
-.results li {
-  color: var(--pale-grey);
+.results li button {
+  transform: translateX(90deg);
 }
 
 .items-button {

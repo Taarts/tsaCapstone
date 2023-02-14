@@ -16,38 +16,53 @@ export function App() {
   return (
     <>
       <div className="bg-img">
-        {/* <img src={svg4} className="layer1" alt="wave" /> */}
         <div className="container">
           <header>
-            <p>welcome back, 'person' </p>
+            <div className="top">
+              <a href="/">
+                <i className="fa fa-home"></i>
+              </a>
+              <p>welcome back, 'person' </p>
+            </div>
             <section>
               <h1>LOREM IPSUM DOLOR</h1>
               <p id="no-bg">everything in it's place</p>
             </section>{' '}
           </header>
+          <h1>Access & Create</h1>
+
           <section className="first-contact">
-            <p>Access & Create</p>
             <div className="categories">
               <ul id="nested">
                 {' '}
-                <li className="items-button">props</li>
-                <li className="items-button">mags</li>
-                <li className="items-button">books</li>
+                <Link to="#">
+                  <li className="items-button">props</li>
+                </Link>
+                <Link to="/magazines">
+                  <li className="items-button">mags</li>
+                </Link>
+                <Link to="/books">
+                  <li className="items-button">books</li>
+                </Link>
                 <Link to="#">
                   <li className="items-button">new</li>
                 </Link>
               </ul>
-              <div className="large">Last edited</div>
+              <Link to="/">
+                <div className="large"> Last edited</div>
+              </Link>
             </div>
           </section>
 
           {/* <Books /> */}
           <Routes>
+            {/* <Route path="/" element={<CategoryList title={title} />}></Route> */}
             <Route index element={<Landing />} />
             <Route path="SignIn" element={<SignIn />} />
             {/* <Route path="SignUp" element={<SignUp />} /> */}
-            <Route path="books" element={<Books />} />
-            <Route path="BooksEntry" element={<BooksEntry />} />
+            <Route path="/books" element={<Books />} />
+            {/* <Route path="/magazines" element={<Magazines />} /> */}
+            <Route path="/books/new" element={<BooksEntry />} />
             <Route path="/books/:id" element={<Book />} />
           </Routes>
         </div>
