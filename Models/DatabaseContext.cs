@@ -16,6 +16,9 @@ namespace tsaCapstone.Models
         // Add database tables here
         public DbSet<Book> Books { get; set; }
         public DbSet<Magazine> Magazines { get; set; }
+        public DbSet<CategoryList> CategoryLists { get; set; }
+
+
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
