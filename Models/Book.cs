@@ -21,5 +21,7 @@ namespace tsaCapstone.Models
         public string NickName { get; set; }
 
         // Navigation property
+        public int InventoryId { get; set; }
+        public Inventory Inventory { get; set; }
     }
 }

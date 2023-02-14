@@ -32,6 +32,9 @@ namespace tsaCapstone.Migrations
                     b.Property<string>("ISBN")
                         .HasColumnType("text");
 
+                    b.Property<int>("InventoryId")
+                        .HasColumnType("integer");
+
                     b.Property<string>("NickName")
                         .IsRequired()
                         .HasColumnType("text");
@@ -51,32 +54,24 @@ namespace tsaCapstone.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("InventoryId");
+
                     b.ToTable("Books");
                 });
 
-            modelBuilder.Entity("tsaCapstone.Models.CategoryList", b =>
+            modelBuilder.Entity("tsaCapstone.Models.Inventory", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<int>("BookId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("MagazineId")
-                        .HasColumnType("integer");
-
                     b.Property<string>("Name")
                         .HasColumnType("text");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("BookId");
-
-                    b.HasIndex("MagazineId");
-
-                    b.ToTable("CategoryLists");
+                    b.ToTable("Inventories");
                 });
 
             modelBuilder.Entity("tsaCapstone.Models.Magazine", b =>
@@ -85,6 +80,9 @@ namespace tsaCapstone.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<int>("InventoryId")
+                        .HasColumnType("integer");
 
                     b.Property<string>("Issue")
                         .HasColumnType("text");
@@ -104,26 +102,38 @@ namespace tsaCapstone.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("InventoryId");
+
                     b.ToTable("Magazines");
                 });
 
-            modelBuilder.Entity("tsaCapstone.Models.CategoryList", b =>
+            modelBuilder.Entity("tsaCapstone.Models.Book", b =>
                 {
-                    b.HasOne("tsaCapstone.Models.Book", "Book")
-                        .WithMany()
-                        .HasForeignKey("BookId")
+                    b.HasOne("tsaCapstone.Models.Inventory", "Inventory")
+                        .WithMany("Books")
+                        .HasForeignKey("InventoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("tsaCapstone.Models.Magazine", "Magazine")
-                        .WithMany()
-                        .HasForeignKey("MagazineId")
+                    b.Navigation("Inventory");
+                });
+
+            modelBuilder.Entity("tsaCapstone.Models.Magazine", b =>
+                {
+                    b.HasOne("tsaCapstone.Models.Inventory", "Inventory")
+                        .WithMany("Magazines")
+                        .HasForeignKey("InventoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Book");
+                    b.Navigation("Inventory");
+                });
 
-                    b.Navigation("Magazine");
+            modelBuilder.Entity("tsaCapstone.Models.Inventory", b =>
+                {
+                    b.Navigation("Books");
+
+                    b.Navigation("Magazines");
                 });
 #pragma warning restore 612, 618
         }

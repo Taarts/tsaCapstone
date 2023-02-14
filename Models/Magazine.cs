@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace tsaCapstone.Models
@@ -11,5 +12,8 @@ namespace tsaCapstone.Models
         public string Issue { get; set; }
         public string PublicationDate { get; set; }
         public string Quantity { get; set; }
+
+        public int InventoryId { get; set; }
+        public Inventory Inventory { get; set; }
     }
 }
