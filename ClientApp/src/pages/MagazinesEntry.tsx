@@ -2,15 +2,15 @@ import React, { useState } from 'react'
 import { useMutation, useQuery } from 'react-query'
 import { Link } from 'react-router-dom'
 
-import { BookType } from '../types'
+import { MagazineType } from '../types'
 import { APIError } from '../types'
 import { useNavigate } from 'react-router'
 
-async function submitNewBook(bookToCreate: BookType) {
-  const response = await fetch('/api/books', {
+async function submitNewMagazine(magazineToCreate: MagazineType) {
+  const response = await fetch('/api/magazines', {
     method: 'POST',
     headers: { 'content-type': 'application/json' },
-    body: JSON.stringify(bookToCreate),
+    body: JSON.stringify(magazineToCreate),
   })
   if (response.ok) {
     return response.json()
@@ -19,24 +19,22 @@ async function submitNewBook(bookToCreate: BookType) {
   }
 }
 
-export function BooksEntry() {
+export function MagazinesEntry() {
   const navigate = useNavigate()
-  const [newBook, setNewBook] = useState<BookType>({
+  const [newMagazine, setNewMagazine] = useState<MagazineType>({
     id: undefined,
     title: '',
-    author: '',
-    publisher: '',
+    volume: '',
+    issue: '',
     publicationDate: '',
-    isbn: '',
     quantity: '',
-    nickName: '',
   })
-  // this works sometimes?? w....t....f
+
   const [errorMessage, setErrorMessage] = useState('')
 
-  const createNewBook = useMutation(submitNewBook, {
+  const createNewMagazine = useMutation(submitNewMagazine, {
     onSuccess: function () {
-      navigate('/books')
+      navigate('/magazines')
     },
     onError: function (apiError: APIError) {
       const newMessage = Object.values(apiError.errors).join(' ')
@@ -49,9 +47,9 @@ export function BooksEntry() {
     const value = event.target.value
     const fieldName = event.target.name
 
-    const updatedBook = { ...newBook, [fieldName]: value }
+    const updatedMagazine = { ...newMagazine, [fieldName]: value }
 
-    setNewBook(updatedBook)
+    setNewMagazine(updatedMagazine)
   }
 
   return (
@@ -59,8 +57,8 @@ export function BooksEntry() {
     <>
       <section className="form">
         <nav className="nav">
-          <Link to="/books">
-            <p>BOOKS</p>
+          <Link to="/magazines">
+            <p>MAGAZINES</p>
           </Link>
         </nav>
 
@@ -68,7 +66,7 @@ export function BooksEntry() {
         <form
           onSubmit={(event) => {
             event.preventDefault()
-            createNewBook.mutate(newBook)
+            createNewMagazine.mutate(newMagazine)
           }}
         >
           <div className="entry-form">
@@ -78,26 +76,25 @@ export function BooksEntry() {
                 required
                 id="title"
                 name="title"
-                value={newBook.title}
+                value={newMagazine.title}
                 onChange={handleStringFieldChange}
               />
             </div>
             <div className="form-group">
-              <label htmlFor="author">Author</label>
+              <label htmlFor="volume">Volume</label>
               <textarea
-                required
-                id="author"
-                name="author"
-                value={newBook.author}
+                id="volume"
+                name="volume"
+                value={newMagazine.volume}
                 onChange={handleStringFieldChange}
               />
             </div>
             <div className="form-group">
-              <label htmlFor="publisher">Publisher</label>
+              <label htmlFor="issue">Issue</label>
               <textarea
-                id="publisher"
-                name="publisher"
-                value={newBook.publisher}
+                id="issue"
+                name="issue"
+                value={newMagazine.issue}
                 onChange={handleStringFieldChange}
               />
             </div>
@@ -106,16 +103,7 @@ export function BooksEntry() {
               <textarea
                 id="publicationDate"
                 name="publicationDate"
-                value={newBook.publicationDate}
-                onChange={handleStringFieldChange}
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="ISBN">ISBN</label>
-              <textarea
-                id="ISBN"
-                name="ISBN"
-                value={newBook.isbn}
+                value={newMagazine.publicationDate}
                 onChange={handleStringFieldChange}
               />
             </div>
@@ -124,20 +112,11 @@ export function BooksEntry() {
               <textarea
                 id="quantity"
                 name="quantity"
-                value={newBook.quantity}
+                value={newMagazine.quantity}
                 onChange={handleStringFieldChange}
               />
             </div>
-            <div className="form-group">
-              <label htmlFor="nickName">Nick-Name</label>
-              <textarea
-                required
-                id="nickName"
-                name="nickName"
-                value={newBook.nickName}
-                onChange={handleStringFieldChange}
-              />
-            </div>
+
             <div className="form-group">
               <button className="submit">submit</button>
             </div>

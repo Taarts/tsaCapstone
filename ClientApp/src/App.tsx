@@ -6,6 +6,9 @@ import { SignIn } from './pages/SignIn'
 import { Landing } from './pages/Landing'
 import { BooksEntry } from './pages/BooksEntry'
 import { Book } from './pages/Book'
+import { Magazines } from './pages/Magazines'
+import { Magazine } from './pages/Magazine'
+import { MagazinesEntry } from './pages/MagazinesEntry'
 
 // import { SmallGrid } from './pages/SmallGrid'
 // import { NewItems } from './pages/NewItems'
@@ -56,12 +59,13 @@ export function App() {
 
           {/* <Books /> */}
           <Routes>
-            {/* <Route path="/" element={<CategoryList title={title} />}></Route> */}
+            {/* <Route path="/" element={<Inventory title={title} />}></Route> */}
             <Route index element={<Landing />} />
             <Route path="SignIn" element={<SignIn />} />
             {/* <Route path="SignUp" element={<SignUp />} /> */}
             <Route path="/books" element={<Books />} />
-            {/* <Route path="/magazines" element={<Magazines />} /> */}
+            <Route path="/magazines" element={<Magazines />} />
+            <Route path="/magazines/new" element={<MagazinesEntry />} />
             <Route path="/books/new" element={<BooksEntry />} />
             <Route path="/books/:id" element={<Book />} />
           </Routes>

@@ -14,6 +14,15 @@ export type BookType = {
   nickName: string
 }
 
+export type MagazineType = {
+  id: number | undefined
+  title: string
+  volume: string
+  issue: string
+  publicationDate: string
+  quantity: string
+}
+
 export type APIError = {
   errors: Record<string, string[]>
   status: number
@@ -22,6 +31,9 @@ export type APIError = {
   type: string
 }
 
-// export type CategoryType = {
-//   name: string | undefined
-// }
+export type InventoryType = {
+  id: number | undefined
+  name: string
+  books: BookType[]
+  magazines: MagazineType[]
+}
