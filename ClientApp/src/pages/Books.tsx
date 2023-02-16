@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { useQuery } from 'react-query'
 import { Link } from 'react-router-dom'
-import svg1 from '/src/images/64919D_sin.svg'
 
-import { BookType } from '../types'
+import { BookType, InventoryType } from '../types'
 import { SingleBookFromList } from '../components/SingleBookFromList'
+import { SingleItemFromInventory } from '../components/SingleItemFromInventory'
 
 export function Books() {
   const [filterText, setFilterText] = useState('')

@@ -9,8 +9,9 @@ import { Book } from './pages/Book'
 import { Magazines } from './pages/Magazines'
 import { Magazine } from './pages/Magazine'
 import { MagazinesEntry } from './pages/MagazinesEntry'
+import { Inventory } from './pages/Inventory'
 
-// import { SmallGrid } from './pages/SmallGrid'
+import { SmallGrid } from './pages/SmallGrid'
 // import { NewItems } from './pages/NewItems'
 
 import svg4 from './images/1920x1080.svg'
@@ -38,6 +39,7 @@ export function App() {
             <div className="categories">
               <ul id="nested">
                 {' '}
+                {/* shouldn't this be able to be refactored? */}
                 <Link to="#">
                   <li className="items-button">props</li>
                 </Link>
@@ -64,10 +66,11 @@ export function App() {
             <Route path="SignIn" element={<SignIn />} />
             {/* <Route path="SignUp" element={<SignUp />} /> */}
             <Route path="/books" element={<Books />} />
-            <Route path="/magazines" element={<Magazines />} />
-            <Route path="/magazines/new" element={<MagazinesEntry />} />
             <Route path="/books/new" element={<BooksEntry />} />
             <Route path="/books/:id" element={<Book />} />
+            <Route path="/magazines" element={<Magazines />} />
+            <Route path="/magazines/new" element={<MagazinesEntry />} />
+            <Route path="/Magazines/:id" element={<Magazine />} />
           </Routes>
         </div>
 

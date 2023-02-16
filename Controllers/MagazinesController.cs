@@ -60,7 +60,10 @@ namespace tsaCapstone.Controllers
         public async Task<ActionResult<Magazine>> GetMagazine(int id)
         {
             // Find the magazine in the database using `FindAsync` to look it up by id
-            var magazine = await _context.Magazines.FindAsync(id);
+            var magazine = await _context.Magazines.
+                                    Where(magazine => magazine.Id == id).
+                                    // for reviews: Include(magazine => magazine.Reviews).
+                                    FirstOrDefaultAsync();
 
             // If we didn't find anything, we receive a `null` in return
             if (magazine == null)

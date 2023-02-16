@@ -66,7 +66,10 @@ namespace tsaCapstone.Controllers
         public async Task<ActionResult<Book>> GetBook(int id)
         {
             // Find the book in the database using `FindAsync` to look it up by id
-            var book = await _context.Books.FindAsync(id);
+            var book = await _context.Books.
+                                    Where(book => book.Id == id).
+                                    // for reviews: Include(book => book.Reviews).
+                                    FirstOrDefaultAsync();
 
             // If we didn't find anything, we receive a `null` in return
             if (book == null)

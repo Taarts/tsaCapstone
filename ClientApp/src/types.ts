@@ -44,4 +44,5 @@ export type InventoryType = {
   name: string
   books: BookType[]
   magazines: MagazineType[]
+  // props: PropType[]
 }

@@ -3,12 +3,12 @@ import { useState } from 'react'
 import { useQuery } from 'react-query'
 import { Link, useParams } from 'react-router-dom'
 
-import { SingleMagazineFromList } from '../components/SingleMagazineFromList'
-import { MagazineType } from '../types'
+import { SingleItemFromInventory } from '../components/SingleItemFromInventory'
+import { InventoryType } from '../types'
 
-async function loadOneMagazine(id: undefined | string) {
+async function loadOneInventory(id: undefined | string) {
   if (!id) return null //this stops the app from looking for a "zero" result.
-  const response = await fetch(`/api/magazines/${id}`)
+  const response = await fetch(`/api/inventories/${id}`)
 
   if (response.ok) {
     return response.json()
@@ -16,20 +16,19 @@ async function loadOneMagazine(id: undefined | string) {
     throw await response.json()
   }
 }
-const NullMagazine: MagazineType = {
+const NullInventory: InventoryType = {
   id: undefined,
-  title: '',
-  volume: '',
-  issue: '',
-  publicationDate: '',
-  quantity: '',
+  name: '',
+  books: [],
+  magazines: [],
+  // pros: [],
 }
-export function Magazine() {
+export function Inventory() {
   const { id } = useParams<{ id: string }>()
 
-  const { data: magazine = NullMagazine } = useQuery<MagazineType>(
-    ['one-magazine', id],
-    () => loadOneMagazine(id)
+  const { data: inventory = NullInventory } = useQuery<InventoryType>(
+    ['one-inventory', id],
+    () => loadOneInventory(id)
   )
 
   return (
@@ -40,13 +39,14 @@ export function Magazine() {
             <i className="fa fa-home"></i>
           </a>
           {/* the link refuses to go to the  */}
-          <Link to={`/magazines/${magazine.id}`}>
-            <h2>{magazine.title}</h2>
+          <Link to={`/inventories/${inventory.id}`}>
+            <h2>{inventory.name}</h2>
           </Link>
           <ul>
-            <li className="volume">Volume #:{magazine.volume}</li>
-            <li className="issue">Issue #: {magazine.issue}</li>
+            <li className="Quantity">{inventory.name.length}</li>
+            {/* <li className="Magazines in Inventory">{inventory.magazines.length}</li> */}
           </ul>
+          <hr />
           <button>edit</button>
           {/* <button>back</button> */}
         </article>

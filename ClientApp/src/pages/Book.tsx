@@ -49,6 +49,7 @@ export function Book() {
             <li className="publisher">{book.publisher}</li>
             <li className="ISBN">{book.isbn}</li>
           </ul>
+          <hr />
           <button>edit</button>
           {/* <button>back</button> */}
         </article>

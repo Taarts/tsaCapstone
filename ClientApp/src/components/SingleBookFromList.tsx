@@ -5,7 +5,6 @@ import { BookType } from '../types'
 export function SingleBookFromList(props: SingleBookFromListProps) {
   return (
     <li>
-      {/* <h2>{props.book.title}</h2> */}
       <Link to={`/books/${props.book.id}`}>
         <button className="items-button">{props.book.nickName}</button>
       </Link>{' '}
