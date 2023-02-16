@@ -23,6 +23,14 @@ export type MagazineType = {
   quantity: string
 }
 
+// export type PropType = {
+// id: number | undefined
+// title: string
+// propType: string
+// quantity: string
+// value: string
+// }
+
 export type APIError = {
   errors: Record<string, string[]>
   status: number
