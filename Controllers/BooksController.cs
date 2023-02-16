@@ -43,7 +43,8 @@ namespace tsaCapstone.Controllers
             else
             {
                 return await _context.Books.
-                            Where(book => book.Title.ToLower().Contains(filter.ToLower())).
+                            Where(book => book.Title.ToLower().
+                            Contains(filter.ToLower())).
                             ToListAsync();
             }
         }

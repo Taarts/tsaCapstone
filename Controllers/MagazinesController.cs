@@ -31,11 +31,23 @@ namespace tsaCapstone.Controllers
         // Returns a list of all your Magazines
         //
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Magazine>>> GetMagazines()
+        public async Task<ActionResult<IEnumerable<Magazine>>> GetMagazines(string filter)
         {
             // Uses the database context in `_context` to request all of the Magazines, sort
             // them by row id and return them as a JSON array.
-            return await _context.Magazines.OrderBy(row => row.Id).ToListAsync();
+
+            if (filter == null)
+            {
+                return await _context.Magazines.
+                        ToListAsync();
+            }
+            else
+            {
+                return await _context.Magazines.
+                            Where(magazine => magazine.Title.ToLower().
+                            Contains(filter.ToLower())).
+                            ToListAsync();
+            }
         }
 
         // GET: api/Magazines/5
