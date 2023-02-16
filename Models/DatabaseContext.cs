@@ -17,8 +17,7 @@ namespace tsaCapstone.Models
         public DbSet<Book> Books { get; set; }
         public DbSet<Magazine> Magazines { get; set; }
         public DbSet<Inventory> Inventories { get; set; }
-
-
+        public DbSet<User> Users { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

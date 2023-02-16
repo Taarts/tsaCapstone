@@ -26,7 +26,7 @@ export function App() {
               <a href="/">
                 <i className="fa fa-home"></i>
               </a>
-              <p>welcome back, 'person' </p>
+              <p>welcome back, 'User' </p>
             </div>
             <section>
               <h1>LOREM IPSUM DOLOR</h1>
