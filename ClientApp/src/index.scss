@@ -158,13 +158,9 @@ header p:nth-child(3) {
   gap: 0.5rem;
 }
 
-form {
-  // display: flex;
-  // flex-flow: column wrap;
-  // justify-content: flex-start;
-  // align-content: stretch;
-  height: 100%;
-  margin: 0.5rem;
+.form-input {
+display: flex;
+flex-direction: column;
 }
 
 .form-group {
@@ -364,6 +360,16 @@ textarea {
 input:required {
   background: var(--chartreuse);
 }
+
+p .subhead {
+  color: var(--chartreuse);
+}
+
+article {
+  margin: auto;
+  width: 15rem;
+}
+
 // <--- Landing --->
 
 footer {

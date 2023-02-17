@@ -46,3 +46,9 @@ export type InventoryType = {
   magazines: MagazineType[]
   // props: PropType[]
 }
+
+export type NewUserType = {
+  fullName: string
+  email: string
+  password: string
+}

@@ -45,9 +45,9 @@ export function Book() {
             <h2>{book.title}</h2>
           </Link>
           <ul>
-            <li className="author">{book.author}</li>
-            <li className="publisher">{book.publisher}</li>
-            <li className="ISBN">{book.isbn}</li>
+            <li className="author"><b>Author:</b> {book.author}</li>
+            <li className="publisher"><b>Publisher:</b> {book.publisher}</li>
+            <li className="ISBN"><b>ISBN:</b> {book.isbn}</li>
           </ul>
           <hr />
           <button>edit</button>

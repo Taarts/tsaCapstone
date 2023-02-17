@@ -39,10 +39,10 @@ export function Inventory() {
             <i className="fa fa-home"></i>
           </a>
           {/* the link refuses to go to the  */}
-          <Link to={`/inventories/${inventory.id}`}>
-            <h2>{inventory.name}</h2>
-          </Link>
           <ul>
+            <Link to={`/inventory/${inventory.id}`}>
+              <li className="items-button">{inventory.name}</li>
+            </Link>
             <li className="Quantity">{inventory.name.length}</li>
             {/* <li className="Magazines in Inventory">{inventory.magazines.length}</li> */}
           </ul>

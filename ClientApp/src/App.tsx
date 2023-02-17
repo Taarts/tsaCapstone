@@ -3,6 +3,7 @@ import { Routes, Route, Link } from 'react-router-dom'
 
 import { Books } from './pages/Books'
 import { SignIn } from './pages/SignIn'
+import { SignUp } from './pages/SignUp'
 import { Landing } from './pages/Landing'
 import { BooksEntry } from './pages/BooksEntry'
 import { Book } from './pages/Book'
@@ -23,15 +24,16 @@ export function App() {
         <div className="container">
           <header>
             <div className="top">
-              <a href="/">
+              <Link to="/">
                 <i className="fa fa-home"></i>
-              </a>
-              <p>welcome back, 'User' </p>
+              </Link>
+              <p>welcome</p>
             </div>
             <section>
               <h1>LOREM IPSUM DOLOR</h1>
               <p id="no-bg">everything in it's place</p>
             </section>{' '}
+          
           </header>
           <h1>Access & Create</h1>
 
@@ -63,8 +65,8 @@ export function App() {
           <Routes>
             {/* <Route path="/" element={<Inventory title={title} />}></Route> */}
             <Route index element={<Landing />} />
-            <Route path="SignIn" element={<SignIn />} />
-            {/* <Route path="SignUp" element={<SignUp />} /> */}
+            {/* <Route path="/signin" element={<SignIn />} /> */}
+            <Route path="/signup" element={<SignUp />} />
             <Route path="/books" element={<Books />} />
             <Route path="/books/new" element={<BooksEntry />} />
             <Route path="/books/:id" element={<Book />} />
