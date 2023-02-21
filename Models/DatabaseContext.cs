@@ -19,6 +19,11 @@ namespace tsaCapstone.Models
         public DbSet<Inventory> Inventories { get; set; }
         public DbSet<User> Users { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        // when configuring user, must have unique email
+        {
+            modelBuilder.Entity<User>().HasIndex(user => user.Email).IsUnique();
+        }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

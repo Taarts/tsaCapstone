@@ -33,7 +33,6 @@ export function App() {
               <h1>LOREM IPSUM DOLOR</h1>
               <p id="no-bg">everything in it's place</p>
             </section>{' '}
-          
           </header>
           <h1>Access & Create</h1>
 
@@ -65,7 +64,7 @@ export function App() {
           <Routes>
             {/* <Route path="/" element={<Inventory title={title} />}></Route> */}
             <Route index element={<Landing />} />
-            {/* <Route path="/signin" element={<SignIn />} /> */}
+            <Route path="/signin" element={<SignIn />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/books" element={<Books />} />
             <Route path="/books/new" element={<BooksEntry />} />

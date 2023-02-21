@@ -8,11 +8,10 @@ export function Landing() {
       {/* <section className="sec-row-grid"> */}
       <section className="landing">
         <nav className="nav">
-          
-          {/* <Link to="signin">
+          <Link to="signin">
             <p className="subhead">SIGN IN</p>
-          </Link> */}
-       
+          </Link>
+
           <Link to="signup">
             <p className="subhead">SIGN UP</p>
           </Link>
