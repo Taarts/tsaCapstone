@@ -30,8 +30,8 @@ export function App() {
               <p>welcome</p>
             </div>
             <section>
-              <h1>LOREM IPSUM DOLOR</h1>
-              <p id="no-bg">everything in it's place</p>
+              <h1>everything</h1>
+              <p id="no-bg"> ...in it's right place</p>
             </section>{' '}
           </header>
           <h1>Access & Create</h1>

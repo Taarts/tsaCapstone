@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useMutation } from 'react-query'
 import { useNavigate } from 'react-router'
+import { Link } from 'react-router-dom'
 import { APIError, NewUserType } from '../types'
 
 async function submitNewUser(newUser: NewUserType) {
@@ -56,7 +57,14 @@ export function SignUp() {
         {/* <a href="/">
           <i className="fa fa-home"></i>
         </a> */}
-        <h2>Sign Up</h2>
+        <div className="form-title">
+          <Link to="/signin">
+            <h2 className="faded">sign in</h2>
+          </Link>
+          <h2 className="signs" id="up">
+            sign up
+          </h2>
+        </div>
       </nav>
 
       <form

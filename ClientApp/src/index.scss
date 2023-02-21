@@ -159,8 +159,8 @@ header p:nth-child(3) {
 }
 
 .form-input {
-display: flex;
-flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .form-group {
@@ -379,4 +379,29 @@ footer {
   height: 3rem;
   padding: 1rem 6rem;
   color: var(--pale-blue);
+}
+.form-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-right: 1rem;
+  margin-left: 0.5rem;
+}
+.faded {
+  color: var(--mid-blue);
+  opacity: 0.5;
+}
+.signs {
+  // text-decoration: underline;
+  background-color: var(--pale-blue);
+  opacity: 0.75;
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+}
+#in {
+  margin-right: 1rem;
+}
+#up {
+  margin-left: 1rem;
 }
