@@ -6,6 +6,7 @@ export function SignIn() {
   console.log('SignIn')
   return (
     <div className="entry-form">
+      <h2>sign in</h2>
       <form className="form-input">
         {/* <div className="form-group"> */}
         <label htmlFor="email">email</label>

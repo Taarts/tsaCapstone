@@ -67,37 +67,36 @@ export function SignUp() {
       >
         {errorMessage ? <p className="form-error">{errorMessage}</p> : null}
         <div className="entry-form">
-        <p className="form-input">
-          <label htmlFor="name">Name</label>
-          <input
-            type="text"
-            name="fullName"
-            value={newUser.fullName}
-            onChange={handleStringFieldChange}
+          <p className="form-input">
+            <label htmlFor="name">Name</label>
+            <input
+              type="text"
+              name="fullName"
+              value={newUser.fullName}
+              onChange={handleStringFieldChange}
             />
-        </p>
-        <p className="form-input">
-          <label htmlFor="name">Email</label>
-          <input
-            type="email"
-            name="email"
-            value={newUser.email}
-            onChange={handleStringFieldChange}
+          </p>
+          <p className="form-input">
+            <label htmlFor="name">Email</label>
+            <input
+              type="email"
+              name="email"
+              value={newUser.email}
+              onChange={handleStringFieldChange}
             />
-        </p>
-        <p className="form-input">
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            name="password"
-            value={newUser.password}
-            onChange={handleStringFieldChange}
+          </p>
+          <p className="form-input">
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              name="password"
+              value={newUser.password}
+              onChange={handleStringFieldChange}
             />
-        </p>
-        <p>
-          <input type="submit" value="Submit" />
-         
-        </p>
+          </p>
+          <p>
+            <input type="submit" value="Submit" />
+          </p>
         </div>
       </form>
     </main>

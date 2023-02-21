@@ -1,3 +1,4 @@
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Identity;
@@ -23,6 +24,8 @@ namespace tsaCapstone.Models
             // Define only the `set` aspect of the property
             set
             {
+                Console.WriteLine($"Text password is '{value}'");
+
                 // When set, use the PasswordHasher to encrypt the password
                 // and store the result in our HashedPassword
                 this.HashedPassword = new PasswordHasher<User>().HashPassword(this, value);
