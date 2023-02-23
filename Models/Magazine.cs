@@ -13,7 +13,7 @@ namespace tsaCapstone.Models
         public string PublicationDate { get; set; }
         public string Quantity { get; set; }
 
-        public int InventoryId { get; set; }
-        public Inventory Inventory { get; set; }
+        public int UserId { get; set; }
+        public User User { get; set; }
     }
 }

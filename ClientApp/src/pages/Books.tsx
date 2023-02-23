@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import { BookType, InventoryType } from '../types'
 import { SingleBookFromList } from '../components/SingleBookFromList'
 import { SingleItemFromInventory } from '../components/SingleItemFromInventory'
+import { authHeader } from '../auth'
 
 export function Books() {
   const [filterText, setFilterText] = useState('')
@@ -15,7 +16,13 @@ export function Books() {
       const response = await fetch(
         filterText.length === 0
           ? '/api/books'
-          : `/api/books?filter=${filterText}`
+          : `/api/books?filter=${filterText}`,
+        {
+          headers: {
+            'content-type': 'application/json',
+            Authorization: authHeader(),
+          },
+        }
       )
 
       // react query does the waiting for you
@@ -49,6 +56,7 @@ export function Books() {
           })}
 
           {/* adding new item to list (book) */}
+
           <li>
             <Link to="/books/new">
               <button className="items-button new">new</button>

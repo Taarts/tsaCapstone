@@ -61,7 +61,7 @@ export function SignUp() {
           <Link to="/signin">
             <h2 className="faded">sign in</h2>
           </Link>
-          <h2 className="signs" id="up">
+          <h2 className="subhead" id="up">
             sign up
           </h2>
         </div>

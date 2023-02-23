@@ -5,11 +5,15 @@ import { Link } from 'react-router-dom'
 import { BookType } from '../types'
 import { APIError } from '../types'
 import { useNavigate } from 'react-router'
+import { authHeader } from '../auth'
 
 async function submitNewBook(bookToCreate: BookType) {
   const response = await fetch('/api/books', {
     method: 'POST',
-    headers: { 'content-type': 'application/json' },
+    headers: {
+      'content-type': 'application/json',
+      Authorization: authHeader(),
+    },
     body: JSON.stringify(bookToCreate),
   })
   if (response.ok) {
@@ -114,7 +118,7 @@ export function BooksEntry() {
               <label htmlFor="ISBN">ISBN</label>
               <textarea
                 id="ISBN"
-                name="ISBN"
+                name="isbn"
                 value={newBook.isbn}
                 onChange={handleStringFieldChange}
               />

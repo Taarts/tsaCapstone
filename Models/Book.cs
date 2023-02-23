@@ -20,8 +20,7 @@ namespace tsaCapstone.Models
         [Required(ErrorMessage = "Please enter a *Nick-Name.")]
         public string NickName { get; set; }
 
-        // Navigation property
-        public int InventoryId { get; set; }
-        public Inventory Inventory { get; set; }
+        public int UserId { get; set; }
+        public User User { get; set; }
     }
 }

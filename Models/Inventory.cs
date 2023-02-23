@@ -10,9 +10,6 @@ namespace tsaCapstone.Models
         public string Name { get; set; }
         // public string Summary { get; set; }
 
-
-        public List<Book> Books { get; set; }
-        public List<Magazine> Magazines { get; set; }
         // public List<Prop> Props { get; set; }
 
     }

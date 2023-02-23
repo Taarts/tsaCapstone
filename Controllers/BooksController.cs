@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -31,6 +33,7 @@ namespace tsaCapstone.Controllers
         // Returns a list of all your Books
         //
         [HttpGet]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<ActionResult<IEnumerable<Book>>> GetBooks(string filter)
         {
             // Uses the database context in `_context` to request all of the Books, sort
@@ -38,13 +41,15 @@ namespace tsaCapstone.Controllers
             if (filter == null)
             {
                 return await _context.Books.
+                        Where(book => book.UserId == GetCurrentUserId()).
                         ToListAsync();
             }
             else
             {
                 return await _context.Books.
                             Where(book => book.Title.ToLower().
-                            Contains(filter.ToLower())).
+                              Contains(filter.ToLower())).
+                            Where(book => book.UserId == GetCurrentUserId()).
                             ToListAsync();
             }
         }
@@ -143,8 +148,11 @@ namespace tsaCapstone.Controllers
         // new values for the record.
         //
         [HttpPost]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<ActionResult<Book>> PostBook(Book book)
         {
+            // Set the UserID to the current user id, this overrides anything the user specifies.
+            book.UserId = GetCurrentUserId();
             // Indicate to the database context we want to add this new record
             _context.Books.Add(book);
             await _context.SaveChangesAsync();
@@ -185,6 +193,12 @@ namespace tsaCapstone.Controllers
         private bool BookExists(int id)
         {
             return _context.Books.Any(book => book.Id == id);
+        }
+        // Private helper method to get the JWT claim related to the user ID
+        private int GetCurrentUserId()
+        {
+            // Get the User Id from the claim and then parse it as an integer.
+            return int.Parse(User.Claims.FirstOrDefault(claim => claim.Type == "Id").Value);
         }
     }
 }

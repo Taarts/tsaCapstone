@@ -98,7 +98,8 @@ header p:nth-child(3) {
   background-color: none;
 }
 
-.nav p {
+.nav p,
+h2 {
   text-align: right;
   grid-template-areas: '. subhead';
   padding: 0.5rem;
@@ -111,7 +112,7 @@ header p:nth-child(3) {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-areas: 'subhead subhead';
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   gap: 0.25rem;
   align-items: center;
 }
@@ -127,7 +128,7 @@ header p:nth-child(3) {
 .new-input nav {
   display: flex;
   justify-content: center;
-  padding: 0.5rem 3rem;
+  padding: 0.5rem;
   align-items: center;
 }
 
@@ -391,17 +392,4 @@ footer {
 .faded {
   color: var(--mid-blue);
   opacity: 0.5;
-}
-.signs {
-  // text-decoration: underline;
-  background-color: var(--pale-blue);
-  opacity: 0.75;
-  padding: 0.25rem;
-  border-radius: 0.5rem;
-}
-#in {
-  margin-right: 1rem;
-}
-#up {
-  margin-left: 1rem;
 }
