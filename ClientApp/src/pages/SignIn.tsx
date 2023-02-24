@@ -3,6 +3,13 @@ import { useMutation } from 'react-query'
 import { Link } from 'react-router-dom'
 import { recordAuthentication } from '../auth'
 import { APIError, LoginSuccess, LoginUserType } from '../types'
+import { isLoggedIn, logout } from '../auth'
+
+function handleLogout() {
+  logout()
+
+  window.location.assign('/')
+}
 
 async function loginUser(user: LoginUserType): Promise<LoginSuccess> {
   const response = await fetch('/api/Session', {
@@ -46,51 +53,66 @@ export function SignIn() {
 
     setUser(updatedUser)
   }
-
-  return (
-    <div className="entry-form">
-      <div className="form-title">
-        <h2 className="nav">sign in</h2>
-        <Link to="/signup">
-          <h2 className="faded">sign up</h2>
-        </Link>
-      </div>
-      <form
-        className="form-input"
-        onSubmit={function (event) {
+  if (isLoggedIn()) {
+    return (
+      <a
+        href="/"
+        className="link"
+        onClick={function (event) {
           event.preventDefault()
-
-          loginUserMutation.mutate(user)
+          handleLogout()
         }}
       >
-        {errorMessage ? <p className="form-error">{errorMessage}</p> : null}
-        <div className="entry-form">
-          <p className="form-input">
-            <label htmlFor="email">email</label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              value={user.email}
-              onChange={handleStringFieldChange}
-            />
-          </p>
+        <p className="subhead"></p>
+        Sign out
+      </a>
+    )
+  } else {
+    return (
+      <div className="entry-form">
+        <div className="form-title">
+          <h2 className="nav">sign in</h2>
+          <Link to="/signup">
+            <h2 className="faded">sign up</h2>
+          </Link>
         </div>
-        <div className="entry-form">
-          <p className="form-input">
-            <label htmlFor="password">password</label>
-            <input
-              type="password"
-              name="password"
-              id="password"
-              value={user.password}
-              onChange={handleStringFieldChange}
-            />
-          </p>
-        </div>
+        <form
+          className="form-input"
+          onSubmit={function (event) {
+            event.preventDefault()
 
-        <button type="submit">sign in</button>
-      </form>
-    </div>
-  )
+            loginUserMutation.mutate(user)
+          }}
+        >
+          {errorMessage ? <p className="form-error">{errorMessage}</p> : null}
+          <div className="entry-form">
+            <p className="form-input">
+              <label htmlFor="email">email</label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                value={user.email}
+                onChange={handleStringFieldChange}
+              />
+            </p>
+          </div>
+          <div className="entry-form">
+            <p className="form-input">
+              <label htmlFor="password">password</label>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                value={user.password}
+                onChange={handleStringFieldChange}
+              />
+            </p>
+          </div>
+
+          <button type="submit">sign in</button>
+        </form>
+      </div>
+    )
+  }
 }

@@ -1,5 +1,6 @@
 import React from 'react'
-import { Routes, Route, Link } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+import format from 'date-fns/format'
 
 import { Books } from './pages/Books'
 import { SignIn } from './pages/SignIn'
@@ -13,9 +14,8 @@ import { MagazinesEntry } from './pages/MagazinesEntry'
 import { Inventory } from './pages/Inventory'
 import { getUser, isLoggedIn, logout } from './auth'
 import avatar from './images/avatar.png'
-
-import { SmallGrid } from './pages/SmallGrid'
-// import { NewItems } from './pages/NewItems'
+// import { SharedLayout } from './pages/SharedLayout'
+// import { Dashboard } from './pages/Dashboard'
 
 export function App() {
   function handleLogout() {
@@ -67,11 +67,10 @@ export function App() {
             </section>{' '}
           </header>
           {isLoggedIn() ? <h1>Access & Create</h1> : null}
-          <section className="first-contact">
+          <section className="dashboard">
             <div className="categories">
               <ul id="nested">
                 {' '}
-                {/* shouldn't this be able to be refactored? */}
                 {isLoggedIn() ? (
                   <Link to="#">
                     <li className="items-button">props</li>
@@ -100,12 +99,14 @@ export function App() {
               ) : null}
             </div>
           </section>
-          {/* <Books /> */}
+          {/* <BrowserRouter> */}
           <Routes>
-            {/* <Route path="/" element={<Inventory title={title} />}></Route> */}
-            <Route index element={<Landing />} />
-            <Route path="/signin" element={<SignIn />} />
-            <Route path="/signup" element={<SignUp />} />
+            {/* <Route path="/" element={<SharedLayout />} />
+              <Route path="/dashboard" element={<Dashboard />} /> */}
+            <Route element={<Landing />}>
+              <Route path="/" element={<SignIn />} />
+              <Route path="/signup" element={<SignUp />} />
+            </Route>
             <Route path="/books" element={<Books />} />
             <Route path="/books/new" element={<BooksEntry />} />
             <Route path="/books/:id" element={<Book />} />
@@ -113,6 +114,7 @@ export function App() {
             <Route path="/magazines/new" element={<MagazinesEntry />} />
             <Route path="/Magazines/:id" element={<Magazine />} />
           </Routes>
+          {/* </BrowserRouter> */}
         </div>
 
         {/* <NewItems /> */}
