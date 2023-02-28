@@ -75,14 +75,22 @@ h1 {
   font-size: 2rem;
   font-weight: 500;
 }
+h2 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  background-color: none;
+}
+
 header {
   display: flex;
   flex-flow: column;
   width: 15rem;
+  margin: none;
 }
-// header section {
-//   text-shadow: 2px 2px 4px var(grey);
-// }
+
+section > h1 {
+  text-shadow: 2px 2px 4px var(grey);
+}
 
 header p {
   background-color: var(--mid-blue);
@@ -118,7 +126,7 @@ p {
   align-self: center;
 }
 .nav p,
-h2 {
+h3 {
   text-align: right;
   grid-template-areas: '. subhead';
   padding: 0.5rem;
@@ -133,6 +141,10 @@ nav {
   margin-bottom: 1rem;
   // gap: 0.25rem;
   // align-items: center;
+}
+
+nav > p {
+  width: 15rem;
 }
 
 .subhead {

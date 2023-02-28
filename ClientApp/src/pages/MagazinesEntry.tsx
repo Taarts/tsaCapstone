@@ -5,11 +5,15 @@ import { Link } from 'react-router-dom'
 import { MagazineType } from '../types'
 import { APIError } from '../types'
 import { useNavigate } from 'react-router'
+import { authHeader } from '../auth'
 
 async function submitNewMagazine(magazineToCreate: MagazineType) {
   const response = await fetch('/api/magazines', {
     method: 'POST',
-    headers: { 'content-type': 'application/json' },
+    headers: {
+      'content-type': 'application/json',
+      Authorization: authHeader(),
+    },
     body: JSON.stringify(magazineToCreate),
   })
   if (response.ok) {

@@ -31,7 +31,7 @@ export function App() {
               <p id="no-bg"> ...in it's right place</p>
             </section>{' '}
           </header>
-          <h1>Access & Create</h1>
+          {isLoggedIn() ? <h1>Access & Create</h1> : null}
           <section className="dashboard">
             <div className="categories">
               <ul id="nested">

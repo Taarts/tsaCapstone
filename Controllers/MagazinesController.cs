@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -137,8 +139,11 @@ namespace tsaCapstone.Controllers
         // new values for the record.
         //
         [HttpPost]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<ActionResult<Magazine>> PostMagazine(Magazine magazine)
         {
+            // Set the UserID to the current user id, this overrides anything the user specifies.
+            magazine.UserId = GetCurrentUserId();
             // Indicate to the database context we want to add this new record
             _context.Magazines.Add(magazine);
             await _context.SaveChangesAsync();
@@ -179,6 +184,11 @@ namespace tsaCapstone.Controllers
         private bool MagazineExists(int id)
         {
             return _context.Magazines.Any(magazine => magazine.Id == id);
+        }
+        private int GetCurrentUserId()
+        {
+            // Get the User Id from the claim and then parse it as an integer.
+            return int.Parse(User.Claims.FirstOrDefault(claim => claim.Type == "Id").Value);
         }
     }
 }

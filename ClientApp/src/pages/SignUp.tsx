@@ -59,11 +59,11 @@ export function SignUp() {
         </a> */}
         <div className="form-title">
           <Link to="/">
-            <h2 className="faded">sign in</h2>
+            <h3 className="faded">sign in</h3>
           </Link>
-          <h2 className="subhead" id="up">
+          <h3 className="nav" id="up">
             sign up
-          </h2>
+          </h3>
         </div>
       </nav>
 

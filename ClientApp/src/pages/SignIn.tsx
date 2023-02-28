@@ -69,9 +69,9 @@ export function SignIn() {
     return (
       <div className="entry-form">
         <div className="form-title">
-          <h2 className="nav">sign in</h2>
+          <h3 className="nav">sign in</h3>
           <Link to="/signup">
-            <h2 className="faded">sign up</h2>
+            <h3 className="faded">sign up</h3>
           </Link>
         </div>
         <form
