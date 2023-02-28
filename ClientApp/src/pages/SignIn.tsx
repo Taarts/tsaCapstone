@@ -35,8 +35,6 @@ export function SignIn() {
 
   const loginUserMutation = useMutation(loginUser, {
     onSuccess: function (apiResponse) {
-      // TODO: record the authentication information we receive
-
       recordAuthentication(apiResponse)
       window.location.assign('/')
     },

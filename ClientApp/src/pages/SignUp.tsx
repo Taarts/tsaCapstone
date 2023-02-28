@@ -58,7 +58,7 @@ export function SignUp() {
           <i className="fa fa-home"></i>
         </a> */}
         <div className="form-title">
-          <Link to="/signin">
+          <Link to="/">
             <h2 className="faded">sign in</h2>
           </Link>
           <h2 className="subhead" id="up">

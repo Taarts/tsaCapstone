@@ -14,59 +14,24 @@ import { MagazinesEntry } from './pages/MagazinesEntry'
 import { Inventory } from './pages/Inventory'
 import { getUser, isLoggedIn, logout } from './auth'
 import avatar from './images/avatar.png'
+import { LoggedInUser } from './types'
 // import { SharedLayout } from './pages/SharedLayout'
 // import { Dashboard } from './pages/Dashboard'
 
 export function App() {
-  function handleLogout() {
-    logout()
-
-    window.location.assign('/')
-  }
   const user = getUser()
   return (
     <>
       <div className="bg-img">
         <div className="container">
           <header>
-            {isLoggedIn() ? (
-              <li className="avatar">
-                <img
-                  src={avatar}
-                  alt={`${user.fullName} Avatar`}
-                  height="64"
-                  width="64"
-                />
-              </li>
-            ) : null}
-            {isLoggedIn() ? (
-              <a
-                href="/"
-                className="link"
-                onClick={function (event) {
-                  event.preventDefault()
-                  handleLogout()
-                }}
-              >
-                <p className="subhead">Sign out</p>
-              </a>
-            ) : null}
-            <div className="top">
-              <Link to="/">
-                <i className="fa fa-home"></i>
-              </Link>
-              {isLoggedIn() ? (
-                <p>welcome back, {user.fullName}!</p>
-              ) : (
-                <p>Welcome</p>
-              )}
-            </div>
             <section>
+              <nav>{isLoggedIn() ? <LoggedInNav /> : <SignedOutNav />}</nav>
               <h1>everything</h1>
               <p id="no-bg"> ...in it's right place</p>
             </section>{' '}
           </header>
-          {isLoggedIn() ? <h1>Access & Create</h1> : null}
+          <h1>Access & Create</h1>
           <section className="dashboard">
             <div className="categories">
               <ul id="nested">
@@ -99,7 +64,6 @@ export function App() {
               ) : null}
             </div>
           </section>
-          {/* <BrowserRouter> */}
           <Routes>
             {/* <Route path="/" element={<SharedLayout />} />
               <Route path="/dashboard" element={<Dashboard />} /> */}
@@ -114,15 +78,57 @@ export function App() {
             <Route path="/magazines/new" element={<MagazinesEntry />} />
             <Route path="/Magazines/:id" element={<Magazine />} />
           </Routes>
-          {/* </BrowserRouter> */}
         </div>
 
-        {/* <NewItems /> */}
-
-        {/* <SmallGrid /> */}
-        {/* </div>{' '} */}
         <footer>by Amheiser</footer>
       </div>
+    </>
+  )
+}
+function LoggedInNav() {
+  function handleLogout() {
+    logout()
+    window.location.assign('/')
+  }
+  const user = getUser()
+
+  return (
+    <div className="top-container">
+      <li className="avatar">
+        <img
+          src={avatar}
+          alt={`${user.fullName} Avatar`}
+          height="64"
+          width="64"
+        />
+      </li>
+
+      <a
+        href="/"
+        className="link"
+        onClick={function (event) {
+          event.preventDefault()
+          handleLogout()
+        }}
+      >
+        <p className="subhead">Sign out</p>
+      </a>
+
+      <div className="top">
+        <Link to="/">
+          <i className="fa fa-home"></i>
+        </Link>
+
+        <p>welcome back, {user.fullName}!</p>
+      </div>
+    </div>
+  )
+}
+
+function SignedOutNav() {
+  return (
+    <>
+      <p>Welcome</p>
     </>
   )
 }
