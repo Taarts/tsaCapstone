@@ -26,6 +26,9 @@ const NullBook: BookType = {
   quantity: '',
   nickName: '',
 }
+
+const dateFormat = 'yyyy-MM-dd'
+
 export function Book() {
   const { id } = useParams<{ id: string }>()
 
@@ -45,9 +48,15 @@ export function Book() {
             <h2>{book.title}</h2>
           </Link>
           <ul>
-            <li className="author"><b>Author:</b> {book.author}</li>
-            <li className="publisher"><b>Publisher:</b> {book.publisher}</li>
-            <li className="ISBN"><b>ISBN:</b> {book.isbn}</li>
+            <li className="author">
+              <b>Author:</b> {book.author}
+            </li>
+            <li className="publisher">
+              <b>Publisher:</b> {book.publisher}
+            </li>
+            <li className="ISBN">
+              <b>ISBN:</b> {book.isbn}
+            </li>
           </ul>
           <hr />
           <button>edit</button>

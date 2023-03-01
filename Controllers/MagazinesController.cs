@@ -21,7 +21,7 @@ namespace tsaCapstone.Controllers
         // This is the variable you use to have access to your database
         private readonly DatabaseContext _context;
 
-        // Constructor that recives a reference to your database context
+        // Constructor that receives a reference to your database context
         // and stores it in _context for you to use in your API methods
         public MagazinesController(DatabaseContext context)
         {
@@ -33,6 +33,7 @@ namespace tsaCapstone.Controllers
         // Returns a list of all your Magazines
         //
         [HttpGet]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<ActionResult<IEnumerable<Magazine>>> GetMagazines(string filter)
         {
             // Uses the database context in `_context` to request all of the Magazines, sort
@@ -41,6 +42,7 @@ namespace tsaCapstone.Controllers
             if (filter == null)
             {
                 return await _context.Magazines.
+                        Where(magazine => magazine.UserId == GetCurrentUserId()).
                         ToListAsync();
             }
             else
@@ -48,6 +50,7 @@ namespace tsaCapstone.Controllers
                 return await _context.Magazines.
                             Where(magazine => magazine.Title.ToLower().
                             Contains(filter.ToLower())).
+                             Where(magazine => magazine.UserId == GetCurrentUserId()).
                             ToListAsync();
             }
         }
@@ -65,6 +68,7 @@ namespace tsaCapstone.Controllers
             var magazine = await _context.Magazines.
                                     Where(magazine => magazine.Id == id).
                                     // for reviews: Include(magazine => magazine.Reviews).
+                                    Include(magazine => magazine.User).
                                     FirstOrDefaultAsync();
 
             // If we didn't find anything, we receive a `null` in return

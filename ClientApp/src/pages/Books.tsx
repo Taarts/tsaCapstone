@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useQuery } from 'react-query'
 import { Link } from 'react-router-dom'
 
-import { BookType, InventoryType } from '../types'
+import { BookType } from '../types'
 import { SingleBookFromList } from '../components/SingleBookFromList'
 import { SingleItemFromInventory } from '../components/SingleItemFromInventory'
 import { authHeader } from '../auth'

@@ -12,6 +12,7 @@ export type BookType = {
   isbn: string
   quantity: string
   nickName: string
+  // user: LoggedInUser
 }
 
 export type MagazineType = {
@@ -21,6 +22,7 @@ export type MagazineType = {
   issue: string
   publicationDate: string
   quantity: string
+  // user: LoggedInUser
 }
 
 // export type PropType = {
@@ -39,13 +41,13 @@ export type APIError = {
   type: string
 }
 
-export type InventoryType = {
-  id: number | undefined
-  name: string
-  books: BookType[]
-  magazines: MagazineType[]
-  // props: PropType[]
-}
+// export type InventoryType = {
+//   id: number | undefined
+//   name: string
+//   books: BookType[]
+//   magazines: MagazineType[]
+//   // props: PropType[]
+// }
 
 export type NewUserType = {
   fullName: string

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 
 import { MagazineType } from '../types'
 import { SingleMagazineFromList } from '../components/SingleMagazineFromList'
+import { authHeader } from '../auth'
 
 export function Magazines() {
   const [filterText, setFilterText] = useState('')
@@ -14,7 +15,13 @@ export function Magazines() {
       const response = await fetch(
         filterText.length === 0
           ? '/api/magazines'
-          : `/api/magazines?filter=${filterText}`
+          : `/api/magazines?filter=${filterText}`,
+        {
+          headers: {
+            'content-type': 'application/json',
+            Authorization: authHeader(),
+          },
+        }
       )
 
       // react query does the waiting for you
