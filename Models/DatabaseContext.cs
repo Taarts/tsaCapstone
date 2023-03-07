@@ -18,6 +18,7 @@ namespace tsaCapstone.Models
         public DbSet<Magazine> Magazines { get; set; }
         public DbSet<Inventory> Inventories { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Location> Locations { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         // when configuring user, must have unique email

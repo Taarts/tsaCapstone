@@ -119,7 +119,9 @@ function LoggedInNav() {
           <i className="fa fa-home"></i>
         </Link>
 
-        <p>welcome back, {user.fullName}!</p>
+        <p>
+          welcome back, <a href={`mailto:${user.email}`}>{user.fullName}</a>!
+        </p>
       </div>
     </div>
   )

@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 
 import { BookType } from '../types'
 import { SingleBookFromList } from '../components/SingleBookFromList'
-import { SingleItemFromInventory } from '../components/SingleItemFromInventory'
 import { authHeader } from '../auth'
 
 export function Books() {
@@ -47,6 +46,7 @@ export function Books() {
               }}
             />
           </form>
+          <p className="numberOfItems">{books.length}</p>
         </nav>
         {/* </div> */}
 

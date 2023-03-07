@@ -6,12 +6,13 @@ namespace tsaCapstone.Models
     public class Book
     {
         public int Id { get; set; }
+
         [Required(ErrorMessage = "Please enter a title.")]
-
         public string Title { get; set; }
-        [Required(ErrorMessage = "Please enter an author.")]
 
+        [Required(ErrorMessage = "Please enter an author.")]
         public string Author { get; set; }
+
         public string Publisher { get; set; }
         public string PublicationDate { get; set; }
         public string ISBN { get; set; }

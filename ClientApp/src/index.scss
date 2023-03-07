@@ -120,7 +120,12 @@ header p:nth-child(3) {
   padding: 0.5rem 1rem;
   background-color: none;
 }
-
+.top a {
+  text-decoration: underline;
+}
+.top a:hover {
+  color: var(--chartreuse);
+}
 a > i,
 p {
   align-self: center;
@@ -145,6 +150,13 @@ nav {
 
 nav > p {
   width: 15rem;
+}
+
+nav > .numberOfItems {
+  width: 2rem;
+  text-align: center;
+  padding: 0.5rem;
+  border-radius: 9999px;
 }
 
 .subhead {
