@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from 'react-query'
 
 import './index.scss'
 import { App } from './App'
+import 'mapbox-gl/dist/mapbox-gl.css'
 
 const queryClient = new QueryClient()
 

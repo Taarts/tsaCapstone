@@ -1,4 +1,4 @@
-TRUNCATE TABLE "Users", "Books", "Magazines" RESTART IDENTITY;
+TRUNCATE TABLE "Users", "Books", "Magazines", "Locations" RESTART IDENTITY;
 
 INSERT INTO "Users" ("FullName", "Email", "HashedPassword") VALUES ('Admin', 'info@iy-sp.com', 'AQAAAAEAACcQAAAAEFYwil2sbX1MWYMYPP5AOe0qHpww7SQz/fWqlmCfY5FIdfp9O3RSw63BpTcL1OuMuw==');
 INSERT INTO "Users" ("FullName", "Email", "HashedPassword") VALUES ('Tricia', 'tricia@taarts.net', 'AQAAAAEAACcQAAAAEFYwil2sbX1MWYMYPP5AOe0qHpww7SQz/fWqlmCfY5FIdfp9O3RSw63BpTcL1OuMuw==');
@@ -11,3 +11,7 @@ INSERT INTO "Books" ("Title", "Author", "Publisher", "PublicationDate", "ISBN", 
 INSERT INTO "Magazines" ("Title", "Volume", "Issue", "PublicationDate", "Quantity", "UserId") VALUES ('Yoga Journal', '1', '1', '2010', '1', 2);
 INSERT INTO "Magazines" ("Title", "Volume", "Issue", "PublicationDate", "Quantity", "UserId") VALUES ('Yoga Samachar', '15', '1', 'Spring/Summer 2008', '1', 2);
 INSERT INTO "Magazines" ("Title", "Volume", "Issue", "PublicationDate", "Quantity", "UserId") VALUES ('Namarupa', ' ', '4', '2000', '1', 1);
+
+INSERT INTO "Locations" ("LocationName", "Address", "Latitude", "Longitude", "Telephone") VALUES ('Postures', '461 Carica Road, Naples, Fl', '26.2345643', '81.7917127', '111-1111');
+INSERT INTO "Locations" ("LocationName", "Address", "Latitude", "Longitude", "Telephone") VALUES ('IYSarasota', '312 N Osprey Ave, Sarasota, FL 34236', '27.3392167', '82.5342315', '222-2222');
+INSERT INTO "Locations" ("LocationName", "Address", "Latitude", "Longitude", "Telephone") VALUES ('Community Yoga', '210 Beech St, Fernandina Beach,', '30.6682956"', '81.4636775', '333-3333');

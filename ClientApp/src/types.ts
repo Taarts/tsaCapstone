@@ -41,6 +41,20 @@ export type APIError = {
   type: string
 }
 
+export type LocationType = {
+  id: number | ''
+  locationName: string
+  address: string
+  latitude: number
+  longitude: number
+  telephone: string
+  // user: {
+  //   id: number
+  //   fullName: string
+  //   email: string
+  // }
+}
+
 // export type InventoryType = {
 //   id: number | undefined
 //   name: string

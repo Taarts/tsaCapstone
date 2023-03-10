@@ -26,6 +26,7 @@ namespace tsaCapstone.Controllers
         public LocationsController(DatabaseContext context, IConfiguration config)
         {
             _context = context;
+            BING_MAPS_KEY = config["BING_MAPS_KEY"];
         }
 
         // GET: api/Locations
@@ -126,6 +127,22 @@ namespace tsaCapstone.Controllers
         [HttpPost]
         public async Task<ActionResult<Location>> PostLocation(Location location)
         {
+
+            // Create a new geocoder
+            var geocoder = new Geocoding.Microsoft.BingMapsGeocoder(BING_MAPS_KEY);
+
+            // Request this address to be geocoded.
+            var geocodedAddresses = await geocoder.GeocodeAsync(location.Address);
+
+            // ... and pick out the best address sorted by the confidence level
+            var bestGeocodedAddress = geocodedAddresses.OrderBy(address => address.Confidence).LastOrDefault();
+
+            // If we have a best geocoded address, use the latitude and longitude from that result
+            if (bestGeocodedAddress != null)
+            {
+                location.Latitude = bestGeocodedAddress.Coordinates.Latitude;
+                location.Longitude = bestGeocodedAddress.Coordinates.Longitude;
+            }
             // Indicate to the database context we want to add this new record
             _context.Locations.Add(location);
             await _context.SaveChangesAsync();

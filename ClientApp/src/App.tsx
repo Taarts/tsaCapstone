@@ -15,6 +15,7 @@ import { Inventory } from './pages/Inventory'
 import { getUser, isLoggedIn, logout } from './auth'
 import avatar from './images/avatar.png'
 import { LoggedInUser } from './types'
+import { Location } from './pages/Location'
 // import { SharedLayout } from './pages/SharedLayout'
 // import { Dashboard } from './pages/Dashboard'
 
@@ -68,6 +69,7 @@ export function App() {
             {/* <Route path="/" element={<SharedLayout />} />
               <Route path="/dashboard" element={<Dashboard />} /> */}
             <Route element={<Landing />}>
+              <Route path="/location" element={<Location />} />
               <Route path="/" element={<SignIn />} />
               <Route path="/signup" element={<SignUp />} />
             </Route>

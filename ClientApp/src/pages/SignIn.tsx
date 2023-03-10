@@ -108,7 +108,7 @@ export function SignIn() {
             </p>
           </div>
 
-          <button type="submit">sign in</button>
+          <button type="submit">submit</button>
         </form>
       </div>
     )
