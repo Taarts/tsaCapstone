@@ -33,7 +33,7 @@ export function Magazines() {
   return (
     <>
       <section className="new-input">
-        <nav className="nav">
+        <div className="input">
           <form className="search">
             <label htmlFor="Magazines">MAGAZINES</label>
             <input
@@ -45,7 +45,7 @@ export function Magazines() {
               }}
             />
           </form>
-        </nav>
+        </div>
         {/* </div> */}
 
         <ul className="results">

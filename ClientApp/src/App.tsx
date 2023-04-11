@@ -16,6 +16,7 @@ import { getUser, isLoggedIn, logout } from './auth'
 import avatar from './images/avatar.png'
 import { LoggedInUser } from './types'
 import { Location } from './pages/Location'
+import logo from './images/logo-capstone.svg'
 // import { SharedLayout } from './pages/SharedLayout'
 // import { Dashboard } from './pages/Dashboard'
 
@@ -23,43 +24,44 @@ export function App() {
   const user = getUser()
   return (
     <>
-      <div className="bg-img">
+      <div className="bg-img bg-color">
+        <nav>{isLoggedIn() ? <LoggedInNav /> : <SignedOutNav />}</nav>
         <div className="container">
           <header>
             <section>
-              <nav>{isLoggedIn() ? <LoggedInNav /> : <SignedOutNav />}</nav>
-              <h1>everything</h1>
-              <p id="no-bg"> ...in it's right place</p>
+              <div className="title" data-spacing="refine">
+                <img src={logo} alt="logo" height="135" width="330" />
+              </div>
             </section>{' '}
           </header>
-          {isLoggedIn() ? <h1>Access & Create</h1> : null}
+          {isLoggedIn() ? <h2>Access & Create</h2> : null}
           <section className="dashboard">
             <div className="categories">
               <ul id="nested">
                 {' '}
                 {isLoggedIn() ? (
-                  <Link to="#">
+                  <Link to="#" className="props">
                     <li className="items-button">props</li>
                   </Link>
                 ) : null}
                 {isLoggedIn() ? (
-                  <Link to="/magazines">
+                  <Link to="/magazines" className="mags">
                     <li className="items-button">mags</li>
                   </Link>
                 ) : null}
                 {isLoggedIn() ? (
-                  <Link to="/books">
+                  <Link to="/books" className="books">
                     <li className="items-button">books</li>
                   </Link>
                 ) : null}
                 {isLoggedIn() ? (
-                  <Link to="#">
+                  <Link to="#" className="new">
                     <li className="items-button">new</li>
                   </Link>
                 ) : null}
               </ul>
               {isLoggedIn() ? (
-                <Link to="/">
+                <Link to="/" className="nested-large">
                   <div className="large"> Last edited</div>
                 </Link>
               ) : null}
@@ -69,10 +71,10 @@ export function App() {
             {/* <Route path="/" element={<SharedLayout />} />
               <Route path="/dashboard" element={<Dashboard />} /> */}
             <Route element={<Landing />}>
-              <Route path="/location" element={<Location />} />
               <Route path="/" element={<SignIn />} />
               <Route path="/signup" element={<SignUp />} />
             </Route>
+            <Route path="/location" element={<Location />} />
             <Route path="/books" element={<Books />} />
             <Route path="/books/new" element={<BooksEntry />} />
             <Route path="/books/:id" element={<Book />} />
@@ -82,7 +84,9 @@ export function App() {
           </Routes>
         </div>
 
-        <footer>by Amheiser</footer>
+        <footer>
+          <div className="content">by Amheiser</div>
+        </footer>
       </div>
     </>
   )
@@ -105,23 +109,22 @@ function LoggedInNav() {
         />
       </li>
 
-      <a
-        href="/"
-        className="link"
-        onClick={function (event) {
-          event.preventDefault()
-          handleLogout()
-        }}
-      >
-        <p className="subhead">Sign out</p>
-      </a>
-
-      <div className="top">
+      <div className="welcome">
+        <a
+          href="/"
+          className="link"
+          onClick={function (event) {
+            event.preventDefault()
+            handleLogout()
+          }}
+        >
+          <p className="subhead">Sign out</p>
+        </a>
         <Link to="/">
           <i className="fa fa-home"></i>
         </Link>
 
-        <p>
+        <p className="top">
           welcome back, <a href={`mailto:${user.email}`}>{user.fullName}</a>!
         </p>
       </div>
@@ -131,8 +134,14 @@ function LoggedInNav() {
 
 function SignedOutNav() {
   return (
-    <>
+    <div className="top">
       <p>Welcome</p>
-    </>
+      <div className="form-title">
+        <h3 className="nav">sign in</h3>
+        <Link to="/signup">
+          <h3 className="faded">sign up</h3>
+        </Link>
+      </div>
+    </div>
   )
 }

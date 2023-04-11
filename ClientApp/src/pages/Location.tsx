@@ -63,7 +63,7 @@ export function Location() {
           <Marker latitude={27.77101804911986} longitude={-82.66090611749074}>
             <i
               className="fa-solid fa-om"
-              style={{ color: 'green' }}
+              style={{ color: 'orange' }}
               aria-label="aum"
             />
           </Marker>
